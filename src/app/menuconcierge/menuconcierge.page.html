@@ -11,7 +11,7 @@
       <div class="titulo">NO MOLESTAR</div>
       <p class="descripcion">Entendemos que no querrás ser interrumpido durante tu estancia.</p>
     </div>
-    <ion-toggle slot="end" color="dark" mode="ios"></ion-toggle>
+    <ion-toggle slot="end" color="dark" mode="ios" checked={{switchNoMolestar}} (ionChange)="noMolestar($event)"></ion-toggle>
   </div>
   <div class="content_control">
     <img src="../../assets/images/valetparking.png" alt="valetparking">
@@ -20,7 +20,7 @@
       <p class="descripcion">Solicitar tu auto.</p>
     </div>
     <div></div><div></div><div></div><div></div><div></div><div></div>
-    <ion-toggle slot="end" color="dark" mode="ios"></ion-toggle>
+    <ion-toggle slot="end" color="dark" mode="ios" checked={{switchValet}} (ionChange)="valet($event)"></ion-toggle>
   </div>
   <p class="titulo2">servicios a la Habitación</p>
   <div class="content_control">

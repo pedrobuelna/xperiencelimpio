@@ -30,14 +30,16 @@ export class MenuconciergePage implements OnInit {
     email: any;
     x_descauto: any;
     x_placas: any;
-    switchToallas:any;
-    switchLimpieza:any;
-    switchAmenidades:any;
-    switchAgua:any;
-    switchTv:any;
-    switchAire:any;
-    switchBanio:any;
-    switchMantenimiento:any;
+    switchToallas:any=false;
+    switchLimpieza:any=false;
+    switchAmenidades:any=false;
+    switchAgua:any=false;
+    switchTv:any=false;
+    switchAire:any=false;
+    switchBanio:any=false;
+    switchMantenimiento:any=false;
+    switchValet:any=false;
+    switchNoMolestar:any=false;
     ngOnInit() {
         this.route.queryParams.subscribe(params => {
             this.user_id = params.user_id
@@ -48,35 +50,25 @@ export class MenuconciergePage implements OnInit {
         });
         console.log(this.user_id + " " + this.name + " " + this.email)
     }
-    ionViewDidEnter() {
+    ionViewWillEnter() {
         this.nativeStorage.getItem('app')
         .then(
             app => {
                 console.log(app)
                 this.user_id = app.user_id;
-                this.getMailActivityTeam(14,this.switchToallas);//Toallas
-                this.getMailActivityTeam(16,this.switchLimpieza);//Limpieza
-                this.getMailActivityTeam(17,this.switchAmenidades);//Amenidades
-                this.getMailActivityTeam(18,this.switchAgua);//Agua
-                this.getMailActivityTeam(26,this.switchMantenimiento);//Mantenimiento
-                this.getMailActivityTeam(22,this.switchTv);//Smart Tv
-                this.getMailActivityTeam(20,this.switchAire);//Aire acondicionado
-                this.getMailActivityTeam(21,this.switchBanio);//Baño
+                this.getMailActivityTeam(23,"switchNoMolestar");//Valet
+                this.getMailActivityTeam(15,"switchValet");//Valet
+                this.getMailActivityTeam(14,"switchToallas");//Toallas
+                this.getMailActivityTeam(16,"switchLimpieza");//Limpieza
+                this.getMailActivityTeam(17,"switchAmenidades");//Amenidades
+                this.getMailActivityTeam(18,"switchAgua");//Agua
+                this.getMailActivityTeam(26,"switchMantenimiento");//Mantenimiento
+                this.getMailActivityTeam(22,"switchTv");//Smart Tv
+                this.getMailActivityTeam(20,"switchAire");//Aire acondicionado
+                this.getMailActivityTeam(21,"switchBanio");//Baño
             },
             error => console.error("NO HAY USER_ID")
         );
-    }
-    valetparking() {
-        this.router.navigate(['/valetparking'], {
-            queryParams: {
-                user_id: this.user_id,
-                name: this.name,
-                email: this.email,
-                x_descauto: this.x_descauto,
-                x_placas: this.x_placas
-            }
-        });
-        //this.router.navigate(['/valetparking']);
     }
     mensajegerente() {
         this.router.navigate(['/mensajegerente']);
@@ -89,17 +81,6 @@ export class MenuconciergePage implements OnInit {
     }
     servicios() {
         this.router.navigate(['/servicios']);
-    }
-    nomolestar() {
-        this.router.navigate(['/nomolestar'], {
-            queryParams: {
-                user_id: this.user_id,
-                name: this.name,
-                email: this.email,
-                x_descauto: this.x_descauto,
-                x_placas: this.x_placas
-            }
-        });
     }
     terminos() {
         this.navCtrl.navigateRoot("terminostxt")
@@ -121,6 +102,30 @@ export class MenuconciergePage implements OnInit {
     }
     menu() {
         this.navCtrl.navigateRoot("menulogueado")
+    }
+    noMolestar(event) {
+        console.log("====TOALLAS====");
+        console.log(event.detail);
+        let idType=23;
+        if(event.detail.checked==true){
+            this.setMailActivity(4,idType,"No molestar",this.switchNoMolestar);
+        }else{
+            this.rest.deleteServicio(this.user_id,idType).subscribe(()=>{
+                this.switchToallas=false;            
+            });
+        }
+    }
+    valet(event) {
+        console.log("====TOALLAS====");
+        console.log(event.detail);
+        let idType=15;
+        if(event.detail.checked==true){
+            this.setMailActivity(2,idType,"Valet Parking",this.switchValet);
+        }else{
+            this.rest.deleteServicio(this.user_id,idType).subscribe(()=>{
+                this.switchToallas=false;            
+            });
+        }
     }
     toallas(event) {
         console.log("====TOALLAS====");
@@ -223,8 +228,10 @@ export class MenuconciergePage implements OnInit {
             .subscribe((data) => {
                 console.log("=====Get mailActivity: "+typeId+"=====");
                 console.log(data);
-                switchOption=((data.length==0)?false:true);
                 console.log(((data.length==0)?false:true));
+                //switchOption=((data.length==0)?false:true);
+                this[switchOption]=((data.length==0)?false:true);
+
             }, (err) => {
                 console.log(err)
             });
