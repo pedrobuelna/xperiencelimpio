@@ -73,7 +73,7 @@ export class MenuconciergePage implements OnInit {
     mensajegerente() {
         this.router.navigate(['/mensajegerente']);
     }
-    mensajeconcierge() {
+    mensajerecepcion() {
         this.router.navigate(['/mensajerecepcion']);
     }
     iniciologueado() {
