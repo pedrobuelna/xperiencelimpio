@@ -115,6 +115,10 @@ const routes: Routes = [
     path: 'mensajerecepcion',
     loadChildren: () => import('./mensajerecepcion/mensajerecepcion.module').then( m => m.MensajerecepcionPageModule)
   },
+  {
+    path: 'landingsereia',
+    loadChildren: () => import('./landingsereia/landingsereia.module').then( m => m.LandingsereiaPageModule)
+  },
 ];
 
 @NgModule({

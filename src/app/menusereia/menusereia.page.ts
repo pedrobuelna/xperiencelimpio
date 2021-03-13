@@ -18,7 +18,9 @@ export class MenusereiaPage implements OnInit {
     //this.navCtrl.navigateRoot("iniciologueado")
     this.router.navigate(['/iniciologueado']);
   }
-  
+  landingsereia(){
+    this.router.navigate(['/landingsereia']);
+  }
   menuconcierge(){
     //this.navCtrl.navigateRoot("menuconcierge")
     this.router.navigate(['/menuconcierge']);

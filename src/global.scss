@@ -28,6 +28,10 @@
     font-family: montserratBold;
     src: url(assets/fonts/Montserrat-Bold.ttf);
 }
+@font-face {
+    font-family: montserratMedium;
+    src: url(assets/fonts/Montserrat-Medium.ttf);
+}
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
