@@ -86,7 +86,7 @@ export class RegistroPage implements OnInit {
   }
   submitForm() {
     this.isSubmitted = true;
-    console.log(this.ionicForm.valid)
+    console.log("Campos correctos en login (LOGUEADO)"+this.ionicForm.valid)
     if (!this.ionicForm.valid){
       console.log('Please provide all the required values!')
       return false;
