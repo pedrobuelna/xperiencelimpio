@@ -68,7 +68,7 @@ export class TaskService {
     //const path = `${this.api}/todos/${id}`;
     const path = `${this.api}/mail_activity?res_id=eq.${user_id}&activity_type_id=eq.${activity_type_id}`;
     //alert(path)
-    return this.http.get<getValetParking>(path);
+    return this.http.get<any>(path);
   }
   setValetParking(setValetParking: SetValetParking) {
     // const path = `${this.api}/todos`;
@@ -79,6 +79,10 @@ export class TaskService {
     // const path = `${this.api}/todos`;
     const path = `${this.api}/mail_activity`;
     return this.http.post(path, setServicio);
+  } 
+  deleteServicio(user_id:any,activity_type_id:any) {
+    const path = `${this.api}/mail_activity?res_id=eq.${user_id}&activity_type_id=eq.${activity_type_id}`
+    return this.http.delete(path);
   }
   // getTask(id: string) {
   //   //const path = `${this.api}/todos/${id}`;
@@ -91,9 +95,5 @@ export class TaskService {
   //   const path = `${this.api}/refacciones/${task.id}`;
   //   return this.http.put<Task>(path, task);
   // }
-  // deleteTask(id: string) {
-  //   // const path = `${this.api}/todos/${id}`;
-  //   const path = `${this.api}/refacciones/${id}`
-  //   return this.http.delete(path);
-  // }
+  
 }

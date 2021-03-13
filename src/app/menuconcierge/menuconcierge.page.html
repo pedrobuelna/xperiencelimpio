@@ -29,7 +29,7 @@
       <div class="titulo">Toallas Extra</div>
     </div>
     <div></div><div></div><div></div><div></div><div></div><div></div>
-    <ion-toggle slot="end" color="dark" mode="ios"></ion-toggle>
+    <ion-toggle slot="end" color="dark" mode="ios" checked={{switchToallas}} (ionChange)="toallas($event)"></ion-toggle>
   </div>
   <div class="content_control">
     <img src="../../assets/images/limpieza.png" alt="toallas">
@@ -37,7 +37,7 @@
       <div class="titulo">Limpieza</div>
     </div>
     <div></div><div></div><div></div><div></div><div></div><div></div>
-    <ion-toggle slot="end" color="dark" mode="ios"></ion-toggle>
+    <ion-toggle slot="end" color="dark" mode="ios" checked={{switchLimpieza}} (ionChange)="limpieza($event)"></ion-toggle>
   </div>
   <div class="content_control">
     <img src="../../assets/images/amenidades.png" alt="amenidades">
@@ -45,7 +45,7 @@
       <div class="titulo">Amenidades</div>
     </div>
     <div></div><div></div><div></div>
-    <ion-toggle slot="end" color="dark" mode="ios"></ion-toggle>
+    <ion-toggle slot="end" color="dark" mode="ios" checked={{switchAmenidades}} (ionChange)="amenidades($event)"></ion-toggle>
   </div>
   <div class="content_control">
     <img src="../../assets/images/botelladeagua.png" alt="botelladeagua">
@@ -53,7 +53,7 @@
       <div class="titulo">Botella de agua</div>
     </div>
     <div></div><div></div><div></div>
-    <ion-toggle slot="end" color="dark" mode="ios"></ion-toggle>
+    <ion-toggle slot="end" color="dark" mode="ios" checked={{switchAgua}} (ionChange)="agua($event)"></ion-toggle>
   </div>
   <div class="content_control">
     <img src="../../assets/images/mantenimiento.png" alt="mantenimiento">
@@ -61,7 +61,7 @@
       <div class="titulo">Mantenimiento</div>
     </div>
     <div></div><div></div><div></div><div></div><div></div>
-    <ion-toggle slot="end" color="dark" mode="ios"></ion-toggle>
+    <ion-toggle slot="end" color="dark" mode="ios" checked={{switchMantenimiento}} (ionChange)="mantenimiento($event)"></ion-toggle>
   </div>
   <div class="content_control">
     <img src="../../assets/images/aireacondicionado.png" alt="aireacondicionado">
@@ -69,7 +69,7 @@
       <div class="titulo">Aire acondicionado</div>
     </div>
     <div></div><div></div><div></div><div></div><div></div>
-    <ion-toggle slot="end" color="dark" mode="ios"></ion-toggle>
+    <ion-toggle slot="end" color="dark" mode="ios" checked={{switchAire}} (ionChange)="aire($event)"></ion-toggle>
   </div>
   <div class="content_control">
     <img src="../../assets/images/bano.png" alt="bano">
@@ -77,24 +77,24 @@
       <div class="titulo">Baño</div>
     </div>
     <div></div><div></div><div></div><div></div><div></div><div></div>
-    <ion-toggle slot="end" color="dark" mode="ios"></ion-toggle>
+    <ion-toggle slot="end" color="dark" mode="ios" checked={{switchBanio}} (ionChange)="banio($event)"></ion-toggle>
   </div>
   <div class="content_control">
-    <img src="../../assets/images/tv.png" alt="v">
+    <img src="../../assets/images/tv.png" alt="tv">
     <div class="content_textos">
       <div class="titulo">Servicio de TV</div>
     </div>
     <div></div><div></div><div></div><div></div><div></div><div></div>
-    <ion-toggle slot="end" color="dark" mode="ios"></ion-toggle>
+    <ion-toggle slot="end" color="dark" mode="ios"  checked={{switchTv}} (ionChange)="tv($event)"></ion-toggle>
   </div>
-  <div class="content_control">
+  <!-- <div class="content_control">
     <img src="../../assets/images/otros.png" alt="otro">
     <div class="content_textos">
       <div class="titulo">Otro</div>
     </div>
     <div></div><div></div><div></div><div></div><div></div><div></div>
     <ion-icon name="chevron-forward-outline"></ion-icon>
-  </div>
+  </div> -->
   <p class="titulo2">Contáctanos</p>
   <div class="contactanos_content">
     <div class="content_control2">
