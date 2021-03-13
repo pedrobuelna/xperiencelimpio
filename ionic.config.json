@@ -1,0 +1,7 @@
+{
+  "name": "xperienceversion3",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

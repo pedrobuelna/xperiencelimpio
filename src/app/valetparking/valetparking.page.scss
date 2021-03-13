@@ -1,0 +1,53 @@
+
+.header{width: 100%;height: 112px;background-color: black;}
+.content_header{padding-top: 75px;text-align: center;font-family: montserratBold;font-size: 15px;text-transform: uppercase;position: relative;letter-spacing: 1px;}
+.arrow-left{display: block;position: absolute;left: 23px;bottom: 0px;}
+.content_buton_key{width: 238px;height: 238px;border-radius: 50%;background: black;vertical-align: middle;color: black;text-align: center;font-size: 25px;text-transform: capitalize;margin: auto;-webkit-box-shadow: 0px 17px 25px -23px rgba(0,0,0,0.72);-moz-box-shadow: 0px 17px 25px -23px rgba(0,0,0,0.72);box-shadow: 0px 17px 25px -23px rgba(0,0,0,0.72);top: 50%;
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);}
+.radar{position: absolute;top: 50%;left: 50%;border-radius: 50%;border: 6px solid rgb(36, 34, 34);width: 75px;height: 75px;-webkit-transform: translate(-50%,-50%);transform: translate(-50%,-50%);-webkit-animation: radar 2s infinite;animation: radar 2s infinite;opacity: 0;overflow:hidden;}
+.radar:nth-child(2) {
+    animation-delay: .4s;
+}
+.radar:nth-child(3) {
+    animation-delay: .9s;
+}
+.radar:nth-child(4) {
+    animation-delay: .15s;
+}
+
+.bg{z-index: -1;background:white;width:100%;height:100%;overflow: hidden; top: 50%;left: 50%;position: absolute;
+    // -webkit-transform: translate3d(0,0,0);
+    // -moz-transform: translate3d(0,0,0);
+    // transform: translate3d(0,0,0);
+    -webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);transform: translate(-50%,-50%);}
+.actived .radar{display: none;}
+.bg.actived .content_buton_key2{background-color: white;color: black;}
+@keyframes radar{
+    0%{
+        width:75px;
+        height:75px;
+        border:40px solid #000;
+        opacity:0
+    }
+    50%{
+        opacity:.7
+    }
+    90%{
+        width:300px;
+        height:300px
+    }
+    90%,100%{
+        border:2px 
+            solid  #000;
+        opacity:0
+    }100%{
+        width:600px;
+        height:600px
+    }
+}
+.content_buton_key2 .content_buton_key .button-inner{width: 114px;margin: auto;}
+.content_buton_key2.activated{background-color: #eef3fd;}
+.content_buton_key2{vertical-align: middle;height: 238px;width: 238px;border-radius: 50%;outline: none; background: transparent; color: white; font-family: montserratBold; font-size: 25px; text-transform: uppercase; line-height: 30px;}

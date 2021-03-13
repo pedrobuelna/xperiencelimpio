@@ -1,0 +1,96 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+ @font-face {
+    font-family: montserratLight;
+    src: url(assets/fonts/Montserrat-Light.ttf);
+}
+@font-face {
+    font-family: montserratRegular;
+    src: url(assets/fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: montserratMedium;
+    src: url(assets/fonts/Montserrat-Medium.ttf);
+}
+@font-face {
+    font-family: montserratSemibold;
+    src: url(assets/fonts/Montserrat-Semibold.ttf);
+}
+@font-face {
+    font-family: montserratBold;
+    src: url(assets/fonts/Montserrat-Bold.ttf);
+}
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+//MENU PRINCIPAL
+.content_menu {width: 100%; background: black; text-align: center; border-top: 1px solid #242424; padding: 0; color: white; font-size: 7px;}
+.content_menu ul{list-style: none;padding-left: 0;display: -webkit-box;height: 46px;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;}
+.content_menu ul li{width: 20%;text-align: center;display: inline-block;margin-top: auto;}
+// .content_menu ul li img{display: block;margin: 0 auto 7px;width: 30px;position: relative;}
+// .content_menu ul li img[alt="home"]{width: 60px;position: absolute;left: calc(50% - 30px);top: -19px;}
+// .content_menu ul li img[alt="perfil"]{width: 25px;height: 27px;}
+// .content_menu ul li img[alt="llave"],.content_menu ul li img[alt="llaves"]{width: 27px;}
+.content_menu img{width: 22px;}
+.content_menu img[alt="hogar"]{height: 23px;}
+.content_texto_intro{
+    font-family: montserratLight;
+    letter-spacing: 2px;
+    font-size: 28px;
+    color: white;
+    text-align: left;
+}
+.content_menu ul li a{color: white;display: inline-block;}
+.content_menu ul ul > li:nth-child(3){margin-top: 37px;}
+.content_menu.logueado{background: black;border-top: 0;}
+.circulo{width: 6px;height: 6px;border-radius: 50%;display: block;margin: 5px auto 0;background-color: white;}
+.circulo2{width: 6px;height: 6px;border-radius: 50%;display: block;margin: 5px auto 0;}
+.circulo.circulo3{background-color: transparent;}
+.circulo2.circulo{background-color: white;}
+.inis,.inic,.inivp{display: none;}
+.btn{height: auto;margin: 0; padding: 0;width: 20%;}
+.content_botones{width: 197px;margin: 41px auto;}
+ion-button{border-radius: 10px;}
+ion-button ion-label{text-transform: uppercase;font-size: 7px;height: 40px;font-family: montserratBold;box-sizing: border-box;letter-spacing: 1px;}
+.btn1:first-child{margin-bottom: 20px;border: 1px solid #484848}
+ion-button {
+    --ion-background-color: transparent !important;
+    --ion-border-color: transparent !important;
+}
+.content_menu .btn {
+    --padding-top: 8px;
+    --padding-bottom: 5px;
+}
+.error{color: red;}
+//.btn1{--background:white;--color:black;}
+//.btnblack{--color:white;--background:black;}
+.content_terminos_is{background-color: black;}
+@media only screen and (max-height: 710px) {
+    .bienvenido{top: 35% !important;}
+}
+@media only screen and (max-width: 375px) {
+    .bienvenido{top: 35% !important;}
+    .links{font-size: 23px !important;}
+}

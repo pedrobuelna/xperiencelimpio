@@ -1,0 +1,19 @@
+<ion-content class="bg">
+  <div class="header">
+    <div class="content_header">
+      <img src="../../assets/images/arrow.png" alt="arrow" class="arrow-left" (click)="atras()">
+      <div style="color: white;width: calc(100% - 100px);text-align: center;margin: auto;">Enviar Mensaje al Concierge</div>
+    </div>
+  </div>
+  <div id="formulario">
+    <form id="formulario" [formGroup]="ionicForm" (ngSubmit)="submitForm()">
+      <ion-textarea type="text" formControlName="mensaje"  placeholder="Mensaje" class="input1"></ion-textarea>
+      <span class="error" *ngIf="isSubmitted && errorControl.mensaje.errors?.required">
+        * Mensaje Requerido.
+      </span>
+      <div class="content_botones">
+        <ion-button color="transparent" class="btn1" type="submit">Enviar</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

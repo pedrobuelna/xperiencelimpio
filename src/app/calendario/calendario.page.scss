@@ -1,0 +1,80 @@
+.bg{background-color: white;}
+    #datepicker,#datepicker2 {
+        display: none;
+    }
+    .datepicker--nav-action{display: none;}
+    .calendario_content {
+
+        font-family: VerdanaBold;
+        .datepicker--cells{
+            font-family: Verdana;
+            color: #575756;
+        }
+        .datepicker-inline {
+            display: flex;
+            justify-content: center;
+            .datepicker--cell.-selected-.-focus- {
+                background-color: black;
+            }
+            .datepicker {
+                border: 0px solid #dbdbdb;
+                width: 100%;
+                font-family: VerdanaBold;
+            }
+            .datepicker--nav-title {
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                font-size: 1.5rem;
+                font-family: VerdanaBold;
+                color: black;
+                i {
+                    font-size: 14px;
+                    color: black;
+                }
+            }
+            .datepicker--nav-action {
+                align-items: flex-start;
+                margin-top: 10px;
+                svg {
+                    height: 25px;
+                    width: 25px;
+                }
+            }
+            .datepicker--nav-action[data-action="prev"] {
+                svg {
+                    transform: rotate(90deg);
+                }
+            }
+            .datepicker--nav-action[data-action="next"] {
+                svg {
+                    transform: rotate(-90deg);
+                }
+            }
+            .datepicker--day-name {
+                color: black;
+                font-family: Verdana;
+            }
+        }
+        .datepicker {
+            font-family: HelveticaRegular;
+        }
+    }
+.borrar{float: right;}
+.datepicker--cell.datepicker--cell-day.-other-month-{opacity: 0;}
+.datepicker--cell.-focus-{background-color: transparent;}
+.datepicker--cell.-current-{color: #575756;}
+.datepicker--cell.-disabled-{cursor: default;color: #aeaeae !important;}
+.content_controles{margin-bottom: 5px;margin-top: 20px;}
+.llegadaSalida .selected{color: #706f6f;}
+.content_controles button{font-size: 1.3rem;}
+.llegadaSalida{font-family: VerdanaBold;}
+.right{float: right;}
+.reservar{text-align: center;}
+.reservar .button{height: 40px;font-size: 10px;width: 80%;font-family: verdanaBold;border-radius: 10px;}
+    
+
+.txt3{font-size: 8px;font-weight: 400;}
+.calendario_content{text-align: center;margin-top: 30px;margin-bottom: 30px;}
+.calendario_img{max-width: 240px;display: inline-block;}
+

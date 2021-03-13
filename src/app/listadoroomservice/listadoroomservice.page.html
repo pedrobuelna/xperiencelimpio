@@ -1,0 +1,68 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>listadoroomservice</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content> -->
+
+<ion-content>
+  <div class="content_banner">
+    <label class="imgTitle1">Enjoy the</label>
+    <label class="imgTitle2">Room service</label>
+  </div>
+  <div #fixed_menu class="fixed_menu">
+    <img src="../../assets/images/logo1.png" alt="logo1" class="logo2">
+    <nav class="menu_carrusel bold">
+      <ul #menuScrollx>
+        <li class="habitacionLess habitacion1 selected">Favoritos</li>
+        <li class="habitacionLess habitacion2">Desayunos</li>
+        <li class="habitacionLess habitacion3" (click)="onclickComida()">Comida</li>
+        <li class="habitacionLess habitacion4">Bebidas</li>
+        <li class="habitacionLess habitacion5">Cafetería</li>
+      </ul>
+    </nav>
+  </div>
+ <div class="bg">
+
+ 
+  <div class="content_recomendaciones clearfix">
+    <div class="padding">
+      <img src="../../assets/images/recomendaciones.png" alt="fuego">
+      <span class="titulo1">Recomendaciones</span>
+      <span class="pipe">|</span>
+      <span class="subtitulo">Favoritos</span>
+    </div>
+    <div class="col first col3">
+      <img src="../../assets/images/comida_roomservice.png" alt="comida1">
+      <div class="titulo2">Hotcakes imperiales</div>
+      <div class="precio">$150.00</div>
+    </div>
+    <div class="col col3">
+      <img src="../../assets/images/comida_roomservice2.png" alt="comida2">
+      <div class="titulo2">Beef cheek</div>
+      <div class="precio">$210.00</div>
+    </div>
+    <div class="col col3">
+      <img src="../../assets/images/comida_roomservice3.png" alt="comida3">
+      <div class="titulo2">Pizza Margarita</div>
+      <div class="precio">$180.00</div>
+    </div>
+  </div>
+    <div class="content_agregar clearfix">
+      <div class="col col3 first">
+        <img src="../../assets/images/comida_roomservice3.png" alt="comida3">
+      </div>
+      <div class="content_compra">
+        <div class="bold">Pizza Margarita</div>
+        <div class="verdana2">Tomate, Ajo,Albaca fresco y queso mozarella</div>
+        <div class="precio bold">$180.00</div>
+        <button ion-button color="dark" outline (click)="onclickPagarproducto()">Agregar</button>
+      </div>
+    </div>
+    <div class="espacio_menu"></div>
+  </div>
+</ion-content>
+

@@ -1,0 +1,202 @@
+<ion-content>
+  <div class="bg">
+    <div class="content_up">
+      <img src="../../assets/images/logoregistro.png" alt="logo1" class="imgLogo">
+      <!-- <nav class="menu_carrusel bold">
+        <ul>
+          <li #selected class="selected"><li #selected3 class="selected3"><ion-button color="transparent" class="btn">
+            Habitación
+        </ion-button></li>
+          <li #selected2 class="selected2"><ion-button color="transparent" class="btn">
+            Restaurant
+        </ion-button></li>
+          <li #selected3 class="selected3"><ion-button color="transparent" class="btn">
+            Skybar
+        </ion-button></li>
+          <li #selected4 class="selected4"><ion-button color="transparent" class="btn">
+            Café
+        </ion-button></li>
+          <li #selected5 class="selected5">
+            <ion-button color="transparent" class="btn">
+                Xperiencias
+            </ion-button>
+          </li>
+          <!-- <li #selected class="selected"><ion-button class="btn" clear (click)="goToSlide1()">Habitación</ion-button></li>
+          <li #selected2 class="selected2"><button class="btn" clear (click)="goToSlide2()">Restaurant</button></li>
+          <li #selected3 class="selected3"><button class="btn" clear (click)="goToSlide3()">SkyBar</button></li>
+          <li #selected4 class="selected4"><button class="btn" clear (click)="goToSlide4()">Café</button></li>
+          <li #selected5 class="selected5"><button class="btn" clear (click)="goToSlide5()">Actividades</button></li> -->
+        <!-- </ul>
+      </nav> -->
+    </div>
+    <br><br>
+    <!-- <ion-list style="padding: 0;">
+        <ion-slides pager loop  class="bg" [options]="sliderOptions" (ionSlideDidChange)="slideChanged()">
+          <ion-slide> -->
+            <div class="slide">
+              <ion-button color="transparent" class="links">
+                mi información
+              </ion-button>
+              <!-- <ion-button color="transparent" class="links">
+                mis reservaciones
+              </ion-button> -->
+              <ion-button color="transparent" class="links">
+                la experiencia
+              </ion-button>
+              <ion-button color="transparent" class="links">
+                califica tu estadía
+              </ion-button>
+            </div>
+            <div class="content_terminos_is">
+              <ion-button color="transparent" class="links2" (click)="avisoprivacidad()">aviso de privacidad</ion-button>
+              <ion-button color="transparent" class="links2" (click)="politicas()">políticas de cancelación</ion-button>
+              <ion-button color="transparent" class="links2" (click)="terminos()">Términos y condiciones</ion-button>
+              <ion-button color="transparent" class="links2" (click)="cerrarsesion()">Cerrar sesión</ion-button>
+            </div>
+          <!-- </ion-slide>
+          <ion-slide>
+            <div class="slide" (ionSlideDidChange)="slideChanged2()">
+              <div class="menu_content">
+                <div>
+                  <ion-button color="transparent" class="links">MENU</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links" (click)="onclickListadoroomservice()">ROOM SERVICE</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">RESERVACIONES</ion-button>
+                </div>
+              </div>
+            </div>
+            <div class="content_terminos_is">
+              <ion-button color="transparent" class="links2" (click)="terminos()">Términos y condiciones</ion-button>
+              <ion-button color="transparent" class="links2" (click)="iniciarsesion()">Iniciar sesión</ion-button>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="slide">
+              <div class="menu_content">
+                <div>
+                  <ion-button color="transparent" class="links">MENU</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">HORARIOS</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">ACTIVIDADES</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">RESERVACIONES</ion-button>
+                </div>
+              </div>
+            </div>
+            <div class="content_terminos_is">
+              <ion-button color="transparent" class="links2" (click)="terminos()">Términos y condiciones</ion-button>
+              <ion-button color="transparent" class="links2" (click)="iniciarsesion()">Iniciar sesión</ion-button>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="slide">
+              <div class="menu_content">
+                <div>
+                  <ion-button color="transparent" class="links"color="transparent" class="links">MENÚ</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links"color="transparent" class="links">ROOM SERVICE</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links"color="transparent" class="links">RESERVACIONES</ion-button>
+                </div>
+              </div>
+            </div>
+            <div class="content_terminos_is">
+              <ion-button color="transparent" class="links2" (click)="terminos()">Términos y condiciones</ion-button>
+              <ion-button color="transparent" class="links2" (click)="iniciarsesion()">Iniciar sesión</ion-button>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="slide">
+              <div class="menu_content">
+                <div>
+                  <ion-button color="transparent" class="links" (click)="onclickPlayas()">PLAYAS</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">A. DEPORTIVAS</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">A. CULTURALES</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">A. DIVERSIÓN</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">A. ACUÁTICAS</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">A. NOCHE</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">PLAZAS</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">RESTAURANTES</ion-button>
+                </div>
+                <div>
+                  <ion-button color="transparent" class="links">CASINO ONLINE</ion-button>
+                </div>
+              </div>
+            </div>
+            <div class="content_terminos_is">
+              <ion-button color="transparent" class="links2" (click)="terminos()">Términos y condiciones</ion-button>
+              <ion-button color="transparent" class="links2" (click)="iniciarsesion()">Iniciar sesión</ion-button>
+            </div>
+          </ion-slide>
+        </ion-slides> -->
+        <!-- <div class="beforeCarrucel" (click)="beforeSlide()"><img src="../../assets/images/flechablanca.png" alt="flecha"></div>
+        <div class="nextCarrucel" (click)="nextSlide()"><img src="../../assets/images/flechablanca.png" alt="flecha"></div> -->
+      <!-- </div> -->
+    <!-- </ion-list> -->
+  </div>
+</ion-content>
+<div class="content_menu">
+  <ion-button color="transparent" class="btn" (click)="iniciologueado()">
+    <div>
+      <img src="../../assets/images/hogar-01.svg" alt="inicio">
+      <br>
+      <ion-label>INICIO</ion-label>
+      <div class="circulo2"></div>
+    </div>
+  </ion-button> 
+  <ion-button color="transparent" class="btn" (click)="menuconcierge()">
+    <div>
+      <img src="../../assets/images/LOGO XP_Mesa de trabajo 1.svg" alt="hogar">
+      <br>
+      <ion-label>CONCIERGE</ion-label> <br>
+      <div class="circulo2" [class]="circuloxperience"></div>
+    </div>
+  </ion-button>
+  <ion-button color="transparent" class="btn" (click)="menusereia()">
+    <div>
+      <img src="../../assets/images/wine.png" alt="hogar">
+      <br>
+      <ion-label>SEREIA BY G</ion-label>
+      <div class="circulo2" [class]="circulocontacto"></div>
+    </div>
+  </ion-button>
+  <ion-button color="transparent" class="btn" (click)="menuquickfit()">
+    <div>
+      <img src="../../assets/images/food.png" alt="food">
+      <br>
+      <ion-label>QUICK & FIT</ion-label>
+      <div class="circulo2" [class]="circuloperfil"></div>
+    </div>
+  </ion-button>
+  <ion-button color="transparent" class="btn">
+    <div>
+      <img src="../../assets/images/menu.png" alt="menu" >
+      <br>
+      <ion-label>MENU</ion-label>
+      <div class="circulo"></div>
+    </div>
+  </ion-button>
+</div>

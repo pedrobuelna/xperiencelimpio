@@ -1,0 +1,157 @@
+<ion-content padding class="bg">
+  <div class="header">
+    <div class="content_header">
+      <img src="../../assets/images/arrow.png" alt="arrow" class="arrow-left" (click)="atras()">
+      <div style="color: white;">Servicios a la Habitación</div>
+    </div>
+  </div>
+  <div class="amenidadesHabitacion">
+    <div class="content_div">
+      <h3 class="bold titulo1"> 
+        <!-- AMENIDADES -->
+      </h3>
+    <ul class="listaAmenidadesLeft">
+      <li *ngFor="let item of items" 
+    (click)="toggleClass(item)" 
+    [ngClass]="{'actived': item.active}">
+    <img src="{{ item.img }}" alt="{{ item.name }}">
+    <div>
+      <label class="title">{{ item.name }}</label>
+      <label class="subTitle">{{ item.subtitle }}</label>
+    </div>
+    </li>
+      <!-- <li (click)="clickEvent()"  
+      [ngClass]="status ? 'actived' : ''">
+        <img src="../../assets/images/cama.png" alt="cama">
+        <div>
+          <label class="title">1 Cama Queen Size</label>
+          <label class="subTitle"></label>
+        </div>
+      </li> -->
+      <!-- <li>
+        <img src="../../assets/images/ap.png" alt="cama">
+        <div>
+          <label class="title">Super Wifi Gratis</label>
+          <label class="subTitle"></label>
+        </div>
+      </li> -->
+      <!-- <li>
+        <img src="../../assets/images/bata.png" alt="cama">
+        <div>images
+          <label class="title">Luxury Bathroom</label>
+          <label class="subTitle">Batas de baño de maximo confort</label>
+        </div>
+      </li> -->
+      <!-- <li>
+        <img src="../../assets/images/pool.png" alt="cama">
+        <div>
+          <label class="title">Royal Pool</label>
+          <label class="subTitle">Lujosa Piscina Privada</label>
+        </div>
+      </li> -->
+      <!-- <li>
+        <img src="../../assets/images/elevador.png" alt="cama">
+        <div>
+          <label class="title">Elevador</label>
+          <label class="subTitle">Elevador de alta gama</label>
+        </div>
+      </li> -->
+      <!-- <li>
+        <img src="../../assets/images/flor.png" alt="cama">
+        <div>
+          <label class="title">SkyBar</label>
+          <label class="subTitle">Skybar 4to piso del hotel</label>
+        </div>
+      </li> -->
+      <!-- <li>
+        <img src="../../assets/images/llavebt.png" alt="cama">
+        <div>
+          <label class="title">Llave Digital (XP App)</label>
+          <label class="subTitle"></label>
+        </div>
+      </li>
+      <li>
+        <img src="../../assets/images/tv.png" alt="cama">
+        <div>
+          <label class="title">Pantallas SmartTV</label>
+          <label class="subTitle">PantallaDigital 50"</label>
+        </div>
+      </li>
+      <li>
+        <img src="../../assets/images/bambo.png" alt="cama">
+        <div>
+          <label class="title">Bamboo Bed Blankets</label>
+          <label class="subTitle">Blancos con fibras naturales de Bambú</label>
+        </div>
+      </li> -->
+    </ul>
+    <ul class="listaAmenidadesLeft">
+      <li *ngFor="let item of items2" 
+    (click)="toggleClass(item)" 
+    [ngClass]="{'actived': item.active}">
+      <img src="{{ item.img }}" alt="{{ item.name }}">
+      <div>
+        <label class="title">{{ item.name }}</label>
+        <label class="subTitle">{{ item.subtitle }}</label>
+      </div>
+    </li>
+      <!-- <li>
+        <img src="../../assets/images/xp.png" alt="cama">
+        <div>
+          <label class="title">XP Royal Mattress</label>
+          <label class="subTitle"></label>
+        </div>
+      </li>
+      <li>
+        <img src="../../assets/images/avion.png" alt="cama">
+        <div>
+          <label class="title">Traslado</label>
+          <label class="subTitle">Aeropuerto-Hotel Xperience</label>
+        </div>
+      </li>
+      <li>
+        <img src="../../assets/images/lavadora.png" alt="cama">
+        <div>
+          <label class="title">Lavadora XP</label>
+          <label class="subTitle">Servicio de Alta Lavanderia</label>
+        </div>
+      </li>
+      <li>
+        <img src="../../assets/images/caja.png" alt="cama">
+        <div>
+          <label class="title">Security Box</label>
+          <label class="subTitle">Caja fuerte con llave digital</label>
+        </div>
+      </li>
+      <li>
+        <img src="../../assets/images/aire.png" alt="cama">
+        <div>
+          <label class="title">Sistema de Aire</label>
+          <label class="subTitle">Aire Acondicionado</label>
+        </div>
+      </li>
+      <li>
+        <img src="../../assets/images/comida.png" alt="cama">
+        <div>
+          <label class="title">Food App</label>
+          <label class="subTitle">Room service en XP App</label>
+        </div>
+      </li>
+      <li>
+        <img src="../../assets/images/cel.png" alt="cama">
+        <div>
+          <label class="title">Registro Digital</label>
+          <label class="subTitle">Check in - Check out</label>
+        </div>
+      </li>
+      <li>
+        <img src="../../assets/images/timbre.png" alt="cama">
+        <div>
+          <label class="title">Room service</label>
+          <label class="subTitle">Restaurant y Cafeteria</label>
+        </div>
+      </li> -->
+    </ul>
+    </div>    
+  </div>
+</ion-content>

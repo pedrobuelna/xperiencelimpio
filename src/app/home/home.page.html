@@ -1,0 +1,42 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ -->
+<ion-content [fullscreen]="false">
+<!--   <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <div id="container">
+   <div class="content_carrusel">
+      <ion-slides pager="true" #slides [options]="sliderOptions" class="content_img_gde" (ionSlideDidChange)="slideChanged()">
+        <ion-slide *ngFor="let item of items">
+          <img src="{{item}}" alt="{{item}}" alt="aire" class="img_gde">
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <div class="content_controles">
+      <img src="../assets/images/logo1.png" alt="logo" class="logo1">
+      <ion-slides pager="true" #slides2 [options]="sliderOptions2" (ionSlideDidChange)="slideChanged2()">
+        <ion-slide *ngFor="let item2 of items2">
+          <div class="content_texto">
+            <div class="titulo1">{{item2.titulo}}</div>
+            <div class="descripcion1">{{item2.subtitulo}}</div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+      <div class="texto1 content_atras " #content_atras (click)="xperience()">SALTAR</div>
+      <div class="content_bullets">
+        
+      </div>
+      <div class="texto2 content_siguiente" (click)="nextSlide()" *ngIf="!bandera">SIGUIENTE<ion-icon ios="arrow-forward" md="arrow-forward"></ion-icon></div>
+      <div class="texto2 content_siguiente" (click)="xperience()" *ngIf="bandera">XPERIENCE<ion-icon ios="arrow-forward" md="arrow-forward"></ion-icon></div>
+    </div>
+  </div>
+</ion-content>

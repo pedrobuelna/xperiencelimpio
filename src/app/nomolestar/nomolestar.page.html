@@ -1,0 +1,68 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>nomolestar</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-content class="content_room">
+  <div class="header">
+    <div class="content_header">
+      <img src="../../assets/images/arrow.png" alt="arrow" class="arrow-left" (click)="atras()">
+      <div style="color: white;">NO MOLESTAR</div>
+    </div>
+  </div>
+  <div class="contendor"*ngIf="!activo">
+    <div class="bg">
+        <div class="radar">
+        </div>
+        <div class="radar">
+        </div>
+        <div class="radar">
+        </div>
+        <div class="radar">
+        </div>
+    </div>
+    <div class="content_buton_key">
+      <button class="content_buton_key2 button button-md button-default button-default-md button-full button-full-md button-md-white" color="white" full="" ion-button="" ng-reflect-color="white" ng-reflect-full="">
+        <div class="button-inner">No molestar activado</div>
+        <div class="button-effect"></div>
+      </button>
+    </div>
+  </div>
+  <div class="contendor actived"*ngIf="activo" >
+    <div class="bg">
+        <div class="radar">
+        </div>
+        <div class="radar">
+        </div>
+        <div class="radar">
+        </div>
+        <div class="radar">
+        </div>
+    </div>
+    <div class="content_buton_key actived" (click)="clickEvent()">
+      <button class="content_buton_key2 button button-md button-default button-default-md button-full button-full-md button-md-white" color="white" full="" ion-button="" ng-reflect-color="white" ng-reflect-full="">
+        <div class="button-inner">Activar no molestar</div>
+        <div class="button-effect"></div>
+      </button>
+    </div>
+  </div>
+  <!-- <div class="contendor"  
+  [ngClass]="status ? '' : 'actived'">
+    <div class="bg">
+        <div class="radar">
+        </div>
+        <div class="radar">
+        </div>
+        <div class="radar">
+        </div>
+        <div class="radar">
+        </div>
+    </div>
+    <div class="content_buton_key" (click)="clickEvent()" [ngClass]="status ? '' : 'actived'">
+      <button class="content_buton_key2 button button-md button-default button-default-md button-full button-full-md button-md-white" color="white" full="" ion-button="" ng-reflect-color="white" ng-reflect-full="">
+        <div class="button-inner">{{texto}}</div>
+        <div class="button-effect"></div>
+      </button>
+    </div>
+  </div> -->
+</ion-content>

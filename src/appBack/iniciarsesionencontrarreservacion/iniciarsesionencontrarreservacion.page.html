@@ -1,0 +1,44 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>iniciarsesionencontrarreservacion</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-content class="bg">
+  <div class="header">
+    <div class="content_header">
+      <img src="../../assets/images/arrow.png" alt="arrow" class="arrow-left" (click)="atras()">
+      <div >Encontrar reservación</div>
+    </div>
+  </div>
+  <div>
+    <form action="" id="formulario">
+      <ion-input placeholder="Apéllido" class="input1"></ion-input>
+      <ion-input placeholder="Número de Confirmación" class="input1"></ion-input>
+      <div class="content_enlaces">
+        <ion-router-link href="#" class="link1 underline" (click)="cancelar()">No tengo número de confirmación</ion-router-link>
+      </div>
+      <div class="content_botones">
+        <!-- <ion-button color="transparent" class="btn1" (click)="siguiente()">continuar</ion-button> -->
+        <ion-button color="transparent" class="btn1">continuar</ion-button>
+      </div>
+    </form>
+  </div>
+  <div class="bg_llamanos" [class]="className">
+    <div class="content_llamanos">
+      <div> 
+        <div class="txt1">llamanos</div>
+        <div class="txt2">33-31212647</div>
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="transparent" class="btn2" expand="full" (click)="cancelar()">cancelar</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="transparent" class="btn1" expand="full"><a href="tel:+3331212647" class="color1">llamar</a></ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

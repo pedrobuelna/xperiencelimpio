@@ -1,0 +1,45 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>registro</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div id="content_registro">
+    <img src="../../assets/images/arrow.png" alt="arrow" class="arrow-left" (click)="atras()">
+    <img src="../../assets/images/logoregistro.png" alt="logoregistro" class="logoregistro">
+    <p class="content_texto_intro">
+      Mira y edita tu perfil, <br>
+      ajusta tus preferencias.
+    </p>
+    <div class="content_botones_registro">
+      <div class="col2btn">
+        <div class="boton_iniciarsesion selectedbtn">
+          <div>
+            INICIAR SESIÓN <br> 
+            CON CORREO
+          </div>
+        </div>
+      </div>
+      <div class="col2btn">
+        <div class="boton_iniciarsesion">
+          INICIAR SESIÓN <br> 
+          CON TELÉFONO
+        </div>
+      </div>
+      <form action="" id="formulario">
+        <div>
+          <ion-input placeholder="INGRESA CORREO" class="input1"></ion-input>
+        </div>
+        <div class="content_botones">
+          <ion-button color="transparent" class="btn1" (click)="siguiente()">siguiente</ion-button>
+        </div>
+      </form>
+      <div class="content_enlaces">
+        <ion-router-link class="link1">¿No tienes una cuenta?</ion-router-link> <br> <br>
+        <ion-router-link href="" class="link1 underline">Regístrate</ion-router-link>
+      </div>
+      
+    </div>
+  </div>
+</ion-content>

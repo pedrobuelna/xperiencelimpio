@@ -1,0 +1,22 @@
+<ion-content>
+  <div class="bg_registro" [class]="className">
+    <div class="content_llamanos">
+      <!-- <h1>TERMINOS Y CONDICIONES</h1> -->
+      <img src="../../assets/images/logoTerminos.png" alt="logo" class="logo">
+      <div class="title1">Terminos y condiciones</div>
+      <p class="parrafo1">
+        Para hacer uso de Xperience en este 
+        dispositivo es necesario que aceptes los 
+        Terminos y Condiciones.
+      </p>
+      <div class="leerterminos" (click)="terminostxt()">
+        <div class="txt2">leer términos</div>
+        <img src="../../assets/images/flecha-derechanegra.png" alt="arrow">
+      </div>
+      <ion-grid class="content_btns">
+        <ion-button color="transparent" class="btn2" (click)="cancelar()">cancelar</ion-button>
+        <ion-button color="transparent" class="btn1" (click)="cancelar()">Acepto</ion-button>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

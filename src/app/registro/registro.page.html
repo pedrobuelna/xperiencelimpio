@@ -1,0 +1,67 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>registro</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div id="content_registro">
+    <img src="../../assets/images/arrow.png" alt="arrow" class="arrow-left" (click)="atras()">
+    <img src="../../assets/images/logoregistro.png" alt="logoregistro" class="logoregistro">
+    <p class="content_texto_intro">
+      Mira y edita tu perfil, <br>
+      ajusta tus preferencias.
+    </p>
+    <div class="content_botones_registro">
+      <div class="col2btn">
+        <div class="boton_iniciarsesion" (click)="correof()" [ngClass]="condition ? 'selectedbtn': 'hide'">
+          <div>
+            INICIAR SESIÓN <br> 
+            CON CORREO
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col2btn">
+        <div class="boton_iniciarsesion" (click)="celularf()" [ngClass]="condition2 ? 'selectedbtn': 'hide'">
+          INICIAR SESIÓN <br> 
+          CON TELÉFONO
+        </div>
+      </div> -->
+      <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" id="formulario">
+        <div *ngIf="condition">
+          <div>
+            <ion-input placeholder="INGRESA CORREO" type="email" class="input1" formControlName="correo" [(ngModel)]="correo"></ion-input>
+          </div>
+           <!-- Error messages -->
+          <span class="error" *ngIf="isSubmitted && (errorControl.correo.errors?.required || errorControl.correo.errors?.pattern)">
+            * Campo Correo requerido con formato correo@dominio.dominio
+          </span>
+          <br>
+          <div>
+            <ion-input placeholder="CONTRASEÑA" type="password" class="input1" formControlName="password"></ion-input>
+          </div>
+           <!-- Error messages -->
+          <span class="error" *ngIf="isSubmitted && (errorControl.password.errors?.required || errorControl.correo.errors?.pattern)">
+            * Campo password obligatorio
+          </span>
+        </div>
+        <div>
+          <div *ngIf="condition2">
+            <ion-input placeholder="Celular" class="input1" type="tel"></ion-input>
+          </div>
+           <!-- Error messages -->
+          <!-- <span class="error" *ngIf="isSubmitted && (errorControl.celular.errors?.required)">
+            * Campo celular requerido
+          </span> -->
+        </div>
+        <div class="content_botones">
+          <ion-button color="transparent" class="btn1" type="subtmit">siguiente</ion-button>
+        </div>
+      </form>
+      <div class="content_enlaces">
+        <span class="link1">¿No tienes una cuenta?</span> <br> <br>
+        <span (click)="registro()"class="link1 underline">Regístrate</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

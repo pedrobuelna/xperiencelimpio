@@ -1,0 +1,42 @@
+#content_xperience{
+    background: url(../../assets/images/introregistro2.jpg);
+    //background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    padding-top: 41px;
+}
+.logo{
+    display: block;
+    width: 100%;
+    max-width: 106px;
+    margin:  auto;
+}
+.overlay_video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.bienvenido {
+    color: white;
+    font-size: 35px;
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    font-family: 'montserratRegular';
+    letter-spacing: 1px;
+
+}
+.content_intro_absolute{
+    position: absolute;
+    bottom: 10%;
+    width: 71%;
+    left: 14.5%;
+    text-align: center;
+}
+
+

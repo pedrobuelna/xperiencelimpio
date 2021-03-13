@@ -1,0 +1,53 @@
+
+<ion-content>
+  <div class="tamanoImagen">
+    <ion-slides pager="true" #slides [options]="sliderOptions" class="content_img_gde">
+      <!-- <ion-slides pager="true" #slides [options]="sliderOptions" class="content_img_gde" (ionSlideDidChange)="slideChanged()"> -->
+        <ion-slide *ngFor="let item of items">
+          <img src="{{item}}" alt="{{item}}" alt="aire" class="img_gde">
+        </ion-slide>
+      </ion-slides>
+  </div>
+</ion-content>
+<div ion-fixed class="content_menu">
+  <ion-button color="transparent" class="btn">
+    <div>
+      <img src="../../assets/images/hogar-01.svg" alt="inicio">
+      <br>
+      <ion-label>INICIO</ion-label>
+      <div class="circulo"></div>
+    </div>
+  </ion-button> 
+  <ion-button color="transparent" class="btn" (click)="menuconcierge()">
+    <div>
+      <img src="../../assets/images/LOGO XP_Mesa de trabajo 1.svg" alt="hogar">
+      <br>
+      <ion-label>CONCIERGE</ion-label> <br>
+      <div class="circulo2" [class]="circuloxperience"></div>
+    </div>
+  </ion-button>
+  <ion-button color="transparent" class="btn" (click)="menusereia()">
+    <div>
+      <img src="../../assets/images/wine.png" alt="hogar">
+      <br>
+      <ion-label>SEREIA BY G</ion-label>
+      <div class="circulo2" [class]="circulocontacto"></div>
+    </div>
+  </ion-button>
+  <ion-button color="transparent" class="btn" (click)="menuquickfit()">
+    <div>
+      <img src="../../assets/images/food.png" alt="food">
+      <br>
+      <ion-label>QUICK & FIT</ion-label>
+      <div class="circulo2" [class]="circuloperfil"></div>
+    </div>
+  </ion-button>
+  <ion-button color="transparent" class="btn" (click)="menu()">
+    <div>
+      <img src="../../assets/images/menu.png" alt="menu">
+      <br>
+      <ion-label>MENU</ion-label>
+      <div class="circulo2"></div>
+    </div>
+  </ion-button>
+</div>

@@ -1,0 +1,49 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>registro</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div id="content_registro">
+    <img src="../../assets/images/arrow.png" alt="arrow" class="arrow-left" (click)="atras()">
+    <img src="../../assets/images/logoregistro.png" alt="logoregistro" class="logoregistro">
+    <p class="content_texto_intro">
+      Un correo con <b>6 dígitos</b> a sido <br>
+      enviado a carla@thexperience.com.<br>
+      Por favor ingresa el código en las<br>
+      casillas mostradas.<br>
+    </p>
+    <form action="" id="formulario">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-input #myInput  class="input1" (keyup)="moveFocus($event,1)" ></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input tabindex="2" class="input1"  id="numero2"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input tabindex="3" class="input1" #numero3 (keyup)="moveFocus($event,3)" ></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input tabindex="4" class="input1" #numero4 (keyup)="moveFocus($event,4)"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input tabindex="5" class="input1" #numero5 (keyup)="moveFocus($event,5)"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input tabindex="6" class="input1" #numero6 (keyup)="moveFocus($event,6)"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="content_botones">
+        <ion-button color="transparent" class="btn1" (click)="edit()">siguiente</ion-button>
+      </div>
+    </form>
+    <div class="content_enlaces">
+      <ion-router-link class="link1">¿No reciviste el codigo de verificación?</ion-router-link> <br> <br>
+      <ion-router-link href="" class="link1 underline">Reenviar Código</ion-router-link>
+    </div>
+  </div>
+</ion-content>

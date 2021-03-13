@@ -1,0 +1,62 @@
+<ion-content>
+  <div class="bg">
+    <div class="content_up">
+      <img src="../../assets/images/logoregistro.png" alt="logo1" class="imgLogo">
+    </div>
+    <br><br>
+            <div class="slide">
+              <ion-button color="transparent" class="links">
+                RESERVACIONES
+              </ion-button>
+              <ion-button color="transparent" class="links">
+                LANDING PAGE
+              </ion-button>
+            </div>
+            <div class="content_terminos_is">
+              <ion-button color="transparent" class="links2" (click)="avisoprivacidad()">aviso de privacidad</ion-button>
+              <ion-button color="transparent" class="links2" (click)="politicas()">políticas de cancelación</ion-button>
+              <ion-button color="transparent" class="links2" (click)="terminos()">Términos y condiciones</ion-button>
+              <ion-button color="transparent" class="links2" (click)="cerrarsesion()">Cerrar sesión</ion-button>
+            </div>
+  </div>
+</ion-content>
+<div ion-fixed class="content_menu">
+  <ion-button color="transparent" class="btn" (click)="iniciologueado()">
+    <div>
+      <img src="../../assets/images/hogar-01.svg" alt="contacto">
+      <br>
+      <ion-label>INICIO</ion-label>
+      <div class="circulo2"></div>
+    </div>
+  </ion-button> 
+  <ion-button color="transparent" (click)="menuconcierge()" class="btn">
+    <div>
+      <img src="../../assets/images/LOGO XP_Mesa de trabajo 1.svg" alt="hogar">
+      <br>
+      <ion-label>CONCIERGE</ion-label> <br>
+      <div class="circulo2" [class]="circuloxperience"></div>
+    </div>
+  </ion-button>
+  <ion-button color="transparent" (click)="menusereia" class="btn">
+    <div>
+      <img src="../../assets/images/wine.png" alt="hogar"><br>
+      <ion-label>SEREIA BY G</ion-label>
+      <div class="circulo" [class]="circulocontacto"></div>
+    </div>
+  </ion-button>
+  <ion-button color="transparent" (click)="menuquickfit()" class="btn">
+    <div>
+      <img src="../../assets/images/food.png" alt="food"><br>
+      <ion-label>QUICK & FIT</ion-label>
+      <div class="circulo2" [class]="circuloperfil"></div>
+    </div>
+  </ion-button>
+  <ion-button color="transparent" class="btn"  (click)="menu()">
+    <div>
+      <img src="../../assets/images/menu.png" alt="menu">
+      <br>
+      <ion-label>MENU</ion-label>
+      <div class="circulo2"></div>
+    </div>
+  </ion-button>
+</div>

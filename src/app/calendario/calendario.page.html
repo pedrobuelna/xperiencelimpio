@@ -1,0 +1,22 @@
+
+<ion-content padding class="calendario"> 
+  <div class="bg">
+    <div class="content_controles">
+      <button ion-button color="dark" clear class="bold" (click)="onclickCerrarCalendario()">X</button>
+      <button ion-button color="dark" clear class="bold borrar" (click)="borrarDatePicker()">Borrar</button>
+    </div>  
+    <div class="llegadaSalida" padding>
+      <span class="selected">Llegada</span>
+      <span class="right">Salida</span>
+    </div>
+    <div class="calendario_content">
+      <input id="datepicker" type="text" data-inline="true" data-language="es" />
+    </div>
+    <div class="calendario_content">
+      <input id="datepicker2" type="text" data-inline="true" data-language="es" />
+    </div>
+    <div class="reservar" padding>
+      <button ion-button color="dark" (click)="onclickReservarFecha()">RESERVAR</button>
+    </div>
+  </div> 
+</ion-content>

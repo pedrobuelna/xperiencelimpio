@@ -1,0 +1,101 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>crearperfil</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<ion-content class="bg">
+  <div class="header">
+    <div class="content_header">
+      <img src="../../assets/images/arrow.png" alt="arrow" class="arrow-left" (click)="atras()">
+      <div style="color: white;">Crear Perfil</div>
+    </div>
+  </div>
+  <div>
+    <form id="formulario" [formGroup]="ionicForm" (ngSubmit)="submitForm()">
+      <ion-input formControlName="nombre" type="text" required placeholder="Primer Nombre" class="input1" ></ion-input>
+      <!-- Error messages -->
+      <span class="error" *ngIf="isSubmitted && errorControl.nombre.errors?.required">
+        * Campo Nombre requerido.
+      </span>
+      <ion-input placeholder="Apellido paterno" class="input1" formControlName="apellido"></ion-input>
+      <!-- Error messages -->
+      <span class="error" *ngIf="isSubmitted && errorControl.apellido.errors?.required">
+        * Campo Apellido paterno requerido.
+      </span>
+      <ion-input placeholder="Apellido materno" class="input1" formControlName="apellidomaterno"></ion-input>
+      <!-- Error messages -->
+      <span class="error" *ngIf="isSubmitted && errorControl.apellidomaterno.errors?.required">
+        * Campo Apellido materno requerido.
+      </span>
+      <ion-input placeholder="Correo Electrónico" class="input1" type="email" formControlName="correo"></ion-input>
+      <!-- Error messages -->
+      <span class="error" *ngIf="isSubmitted && (errorControl.correo.errors?.required || errorControl.correo.errors?.pattern)">
+        * Campo Correo requerido con formato correo@dominio.dominio
+      </span>
+      <ion-input placeholder="Contraseña" class="input1" formControlName="contrasena" type="password"></ion-input>
+      <span class="error" *ngIf="isSubmitted && errorControl.contrasena.errors?.required">
+        * Campo contraseña requerido.
+      </span>
+      <ion-input placeholder="Confirmar contraseña" class="input1" formControlName="confirmarcontrasena" type="password"></ion-input>
+      <span class="error" *ngIf="isSubmitted && errorControl.confirmarcontrasena.errors?.required">
+        * Campo confirmar contraseña requerido.
+      </span>
+      <div class="error" *ngIf="isSubmitted && errorControl.confirmarcontrasena.errors?.confirmedValidator">
+        No coinciden las contraseñas.
+      </div>
+      <ion-select class="select1" placeholder="Selecciona pais o región" value="1" formControlName="pais">
+        <ion-select-option  *ngFor="let pais of paises;let i = index;let last = last;" value="{{pais.id}}">{{pais.name}}</ion-select-option>
+      </ion-select>
+      <!-- Error messages -->
+      <span class="error" *ngIf="isSubmitted && errorControl.pais.errors?.required">
+        * Campo Pais requerido.
+      </span>
+      <div style="display: flex;">
+        <ion-select class="select1" value="+52">
+          <ion-select-option value="+52">+52</ion-select-option>
+        </ion-select>
+        <ion-input type="tel" placeholder="Télefono Celular" class="input1" formControlName="celular"></ion-input>
+      </div>
+      <!-- Error messages -->
+      <span class="error" *ngIf="isSubmitted && (errorControl.celular.errors?.required || errorControl.celular.errors?.maxlength || errorControl.celular.errors?.minlength || errorControl.celular.errors?.pattern)">
+        * Campo Celular debe tener 10 numeros.
+      </span>
+      <div class="content_enlaces">
+        <ion-router-link href="#" class="link1 underline" (click)="cancelar()">Estoy de acuerdo con terminos y condiciones</ion-router-link>
+        <ion-toggle slot="end" name="kiwi" color="success" mode="ios" checked={{myValue}} formControlName="terminos"></ion-toggle>
+      </div>
+      <!-- Error messages -->
+      <span class="error" *ngIf="isSubmitted && errorControl.terminos.errors?.required">
+        * Terminos requerido.
+      </span>
+      <div class="content_botones">
+        <ion-button color="transparent" class="btn1" type="submit">Enviar</ion-button>
+      </div>
+    </form>
+  </div>
+  <div class="bg_llamanos" [class]="className">
+    <div class="content_llamanos">
+      <!-- <div> 
+        <div class="txt1">llamanos</div>
+        <div class="txt2">33-31212647</div>
+      </div> -->
+      <p>
+        <!-- <h1>TERMINOS Y CONDICIONES</h1> -->
+        Esto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condiciones
+        Esto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condiciones
+        Esto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condicionesEsto es un parrafo de pruebas para terminos y condiciones
+      </p>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="transparent" class="btn2" expand="full" (click)="cancelar()">cancelar</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="transparent" class="btn1" expand="full" (click)="aceptar()">Aceptar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
+
