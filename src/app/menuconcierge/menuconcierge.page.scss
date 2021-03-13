@@ -12,29 +12,13 @@ li{list-style: none; display: inline;}
 .links{text-transform: uppercase;font-family: montserratSemibold;font-size: 27px;padding:0;margin-bottom: 23px;}
 .content_terminos_is{text-align: left;padding-left: 15px;margin-top: 100px;}
 .links2{color: #666666;text-align: left;font-size: 15px;}
-
-
 .header{width: 100%;height: 112px;background-color: black;}
 .content_header{padding-top: 75px;text-align: center;font-family: montserratBold;font-size: 15px;text-transform: uppercase;position: relative;letter-spacing: 1px;}
 .arrow-left{display: block;position: absolute;left: 23px;bottom: 0px;}
 .content_buton_key{width: 238px;height: 238px;border-radius: 50%;background: black;vertical-align: middle;color: black;text-align: center;font-size: 25px;text-transform: capitalize;margin: auto;-webkit-box-shadow: 0px 17px 25px -23px rgba(0,0,0,0.72);-moz-box-shadow: 0px 17px 25px -23px rgba(0,0,0,0.72);box-shadow: 0px 17px 25px -23px rgba(0,0,0,0.72);top: 50%;}
 .content_control{margin: 20px 40px 0; display: flex; align-items: center; border-bottom: 1px solid #cccccc; padding-bottom: 20px;justify-content: space-between; }
-.content_textos{max-width: calc(100% - 110px);font-size: 10px;color: black;}
+.content_textos{max-width: calc(100% - 110px);font-size: 13px;color: black;display: inline-block;}
 .titulo{font-weight: bold;}
-.col6 {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    padding-bottom: 20px;
-    justify-content: space-between;
-}
-.titulo2 {
-    font-weight: bold;
-    margin: 20px 40px;
-    text-transform: uppercase;
-    text-decoration: underline;
-    letter-spacing: 2px;
-}
-ion-toggle{
-    --background-checked:black;
-}
+.col6{width: 50%;display: contents;}
+.titulo2{font-weight: bold; margin: 20px 40px; text-transform: uppercase; text-decoration: underline; letter-spacing: 2px;}
+.content_textos2{font-size: 13px;color: black;display: inline-block;}

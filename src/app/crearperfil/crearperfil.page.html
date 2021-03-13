@@ -62,7 +62,7 @@
       </span>
       <div class="content_enlaces">
         <ion-router-link href="#" class="link1 underline" (click)="cancelar()">Estoy de acuerdo con terminos y condiciones</ion-router-link>
-        <ion-toggle slot="end" name="kiwi" color="success" mode="ios" checked={{myValue}} formControlName="terminos"></ion-toggle>
+        <ion-toggle slot="end" name="kiwi" color="dark" mode="ios" checked={{myValue}} formControlName="terminos"></ion-toggle>
       </div>
       <!-- Error messages -->
       <span class="error" *ngIf="isSubmitted && errorControl.terminos.errors?.required">
