@@ -17,8 +17,10 @@ li{list-style: none; display: inline;}
 .arrow-left{display: block;position: absolute;left: 23px;bottom: 0px;}
 .content_buton_key{width: 238px;height: 238px;border-radius: 50%;background: black;vertical-align: middle;color: black;text-align: center;font-size: 25px;text-transform: capitalize;margin: auto;-webkit-box-shadow: 0px 17px 25px -23px rgba(0,0,0,0.72);-moz-box-shadow: 0px 17px 25px -23px rgba(0,0,0,0.72);box-shadow: 0px 17px 25px -23px rgba(0,0,0,0.72);top: 50%;}
 .content_control{margin: 20px 40px 0; display: flex; align-items: center; border-bottom: 1px solid #cccccc; padding-bottom: 20px;justify-content: space-between; }
+.content_control2{width: 50%;display: inline-flex;margin: 0;justify-content: space-between;padding-right: 30px;}
 .content_textos{max-width: calc(100% - 110px);font-size: 13px;color: black;display: inline-block;}
 .titulo{font-weight: bold;}
 .col6{width: 50%;display: contents;}
 .titulo2{font-weight: bold; margin: 20px 40px; text-transform: uppercase; text-decoration: underline; letter-spacing: 2px;}
 .content_textos2{font-size: 13px;color: black;display: inline-block;}
+.contactanos_content{margin: 0 40px 40px;}
