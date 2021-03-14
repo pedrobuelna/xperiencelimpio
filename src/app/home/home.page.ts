@@ -15,58 +15,56 @@ interface Marker {
 })
 export class HomePage {
 	public items = ["../assets/images/introimg1.jpg",
-    "../assets/images/introimg2.jpg",
+    // "../assets/images/introimg2.jpg",
     "../assets/images/introimg3.jpg",
-    "../assets/images/introimg4.jpg",
-    "../assets/images/introimg5.jpg",
+    // "../assets/images/introimg4.jpg",
+    // "../assets/images/introimg5.jpg",
     "../assets/images/introimg6.jpg",
-    "../assets/images/introimg7.jpg"
+    //"../assets/images/introimg7.jpg"
   ];
   public items2 = [
     {
-      titulo:"!Bienvenido!",
+      titulo:"¡Bienvenido!",
       subtitulo:"Tu Xperiencia en un solo lugar",
       saltar:"SALTAR",
       siguiente:"SIGUIENTE"
     },
-    {
-      titulo:"",
-      subtitulo:"Una sección para cada viaje. Podrás también descubrir nuestras actividades y tipos de alojamientos.",
-      saltar:"SALTAR",
-      siguiente:"SIGUIENTE"
-    },
+    // {
+    //   titulo:"",
+    //   subtitulo:"Una sección para cada viaje. Podrás también descubrir nuestras actividades y tipos de alojamientos.",
+    //   saltar:"SALTAR",
+    //   siguiente:"SIGUIENTE"
+    // },
     {
       titulo:"",
       subtitulo:"Tus Xperiencias viven aqui, siempre en un solo toque.",
       saltar:"SALTAR",
       siguiente:"SIGUIENTE"
     },
+    // {
+    //   titulo:"",
+    //   subtitulo:"Consulta tus viajes y agrega actividades, reservaciones en restaurantes o entrenamientos.",
+    //   saltar:"SALTAR",
+    //   siguiente:"SIGUIENTE"
+    // },
+    // {
+    //   titulo:"",
+    //   subtitulo:"Chatea con nosotros en cualquier momento, en cualquier idioma, para informes o una requisición especial.",
+    //   saltar:"SALTAR",
+    //   siguiente:"SIGUIENTE"
+    // },
     {
       titulo:"",
-      subtitulo:"Consulta tus viajes y agrega actividades, reservaciones en restaurantes o entrenamientos.",
+      subtitulo:"Nuestro exclusivo concierge digital es toda una Xperiencia.",
       saltar:"SALTAR",
       siguiente:"SIGUIENTE"
     },
-    {
-      titulo:"",
-      subtitulo:"Chatea con nosotros en cualquier momento, en cualquier idioma, para informes o una requisición especial.",
-      saltar:"SALTAR",
-      siguiente:"SIGUIENTE"
-    },
-    {
-      titulo:"",
-      subtitulo:"Un menú de facil acceso para vertodo lo que puedes hacer dentro de Hotel Xperience.",
-      saltar:"SALTAR",
-      siguiente:"SIGUIENTE"
-    },
-    
-    {
-      titulo:"",
-      subtitulo:"Tu perfil y preferencias siempre a la mano para que hagas de tu estadía la mejor Xperiencia.",
-      saltar:"SALTAR",
-      siguiente:"SIGUIENTE"
-    },
-    
+    // {
+    //   titulo:"",
+    //   subtitulo:"Tu perfil y preferencias siempre a la mano para que hagas de tu estadía la mejor Xperiencia.",
+    //   saltar:"SALTAR",
+    //   siguiente:"SIGUIENTE"
+    // },
   ];
   public sliderOptions = {
     initialSlide: 0,
@@ -144,7 +142,7 @@ export class HomePage {
       // console.log('currentIndex:', index);
       this.slides2.slideTo(index);
       //console.log(this.slides.length)
-      if(index==6){
+      if(index==2){
         this.addMyClass();
         this.bandera=true;
       }

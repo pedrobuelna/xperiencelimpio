@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 @Component({
-  selector: 'app-landingsereia',
-  templateUrl: './landingsereia.page.html',
-  styleUrls: ['./landingsereia.page.scss'],
+  selector: 'app-landingquickfit',
+  templateUrl: './landingquickfit.page.html',
+  styleUrls: ['./landingquickfit.page.scss'],
 })
-export class LandingsereiaPage implements OnInit {
+export class LandingquickfitPage implements OnInit {
   constructor(private router: Router,private navCtrl: NavController) { }
   ngOnInit() {
   }

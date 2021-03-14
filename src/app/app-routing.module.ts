@@ -119,6 +119,14 @@ const routes: Routes = [
     path: 'landingsereia',
     loadChildren: () => import('./landingsereia/landingsereia.module').then( m => m.LandingsereiaPageModule)
   },
+  {
+    path: 'landingquickfit',
+    loadChildren: () => import('./landingquickfit/landingquickfit.module').then( m => m.LandingquickfitPageModule)
+  },
+  {
+    path: 'avisoprivacidad',
+    loadChildren: () => import('./avisoprivacidad/avisoprivacidad.module').then( m => m.AvisoprivacidadPageModule)
+  },
 ];
 
 @NgModule({

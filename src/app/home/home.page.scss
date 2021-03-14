@@ -55,7 +55,11 @@ ion-slides {
   } 
 }
 .quitSaltar{display:none;}
-
+ion-icon{
+  .icon-inner {
+    margin-top: 2px;
+  }
+}
 
 
 

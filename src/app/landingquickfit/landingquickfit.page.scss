@@ -1,0 +1,15 @@
+.header{width: 100%;height: 112px;background-color: black;}
+.content_header{padding-top: 75px;text-align: center;font-family: montserratBold;font-size: 15px;text-transform: uppercase;position: relative;letter-spacing: 1px;}
+.arrow-left{display: block;position: absolute;left: 23px;bottom: 0px;}
+.content_botones{width: 197px;margin: 55px auto 0;text-align: center;}
+img[alt="difuminado"]{display: block;position: absolute;left: -1px;top: 0px;z-index: 3;}
+img[alt="reservacionquickfit"]{position: absolute;left: 0;top: 0;}
+img[alt="fondo"]{display: block;position: absolute; left: 0; top: 0px; z-index: 2;}
+img[alt="logoquickfit"]{display: block;position: absolute;left: calc(50% - 93px);top: 30px;z-index: 2;}
+ion-button{border-radius: 5px;}
+ion-button ion-label{text-transform: uppercase;font-size: 7px;font-family: montserratBold;box-sizing: border-box;}
+.btn1:first-child{margin-bottom: 20px;background-color: black;text-transform: uppercase;font-family: montserratRegular;font-size: 12px;letter-spacing: 2px;height: 40px;}
+.content_banner{position: relative;height: 333px;width: 100%;overflow: hidden;}
+.content_textos{margin: 0 45px;}
+.titulo{font-family: 'montserratMedium';font-size: 25px;}
+.descripcion{font-family: 'montserratSemibold';font-size: 11px;text-align: justify;line-height: 23px;}

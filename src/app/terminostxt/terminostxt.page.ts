@@ -9,11 +9,11 @@ import { NavController } from '@ionic/angular';
 })
 export class TerminostxtPage implements OnInit {
 
-  constructor(private router: Router,private navController: NavController) { }
+  constructor(private router: Router,private navCtrl: NavController,private navController: NavController) { }
 
   ngOnInit() {
   }
   atras(){
-    this.router.navigate(['/menuconcierge']);
+    this.navCtrl.back();
   }
 }

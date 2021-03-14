@@ -32,7 +32,7 @@ export class MenuquickfitPage implements OnInit {
     this.router.navigate(['/menuconcierge']);
   }
   menusereia(){
-    this.router.navigate(['/menusereia']);
+    this.router.navigate(['/landingsereia']);
   }
   menu(){
     this.router.navigate(['/menulogueado']);

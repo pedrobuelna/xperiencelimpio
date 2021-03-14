@@ -58,11 +58,11 @@ menuconcierge(){
 }
 menusereia(){
   //this.navCtrl.navigateRoot("menusereia")
-  this.router.navigate(['/menusereia']);
+  this.router.navigate(['/landingsereia']);
 }
 menuquickfit(){
   //this.navCtrl.navigateRoot("menuquickfit")
-  this.router.navigate(['/menuquickfit']);
+  this.router.navigate(['/landingquickfit']);
 }
 menu(){
   this.navCtrl.navigateRoot("menulogueado")

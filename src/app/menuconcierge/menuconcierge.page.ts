@@ -15,7 +15,6 @@ import {
 import {
     NativeStorage
 } from '@ionic-native/native-storage/ngx';
-
 @Component({
     selector: 'app-menuconcierge',
     templateUrl: './menuconcierge.page.html',
@@ -70,6 +69,9 @@ export class MenuconciergePage implements OnInit {
             error => console.error("NO HAY USER_ID")
         );
     }
+    atras(){
+        this.navCtrl.back();
+    }
     mensajegerente() {
         this.router.navigate(['/mensajegerente']);
     }
@@ -94,11 +96,11 @@ export class MenuconciergePage implements OnInit {
     }
     menusereia() {
         //this.navCtrl.navigateRoot("menusereia")
-        this.router.navigate(['/menusereia']);
+        this.router.navigate(['/landingsereia']);
     }
     menuquickfit() {
         //this.navCtrl.navigateRoot("menuquickfit")
-        this.router.navigate(['/menuquickfit']);
+        this.router.navigate(['/landingquickfit']);
     }
     menu() {
         this.navCtrl.navigateRoot("menulogueado")
