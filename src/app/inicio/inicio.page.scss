@@ -2,3 +2,10 @@ ion-slides {
    --bullet-background: #999999;
    --bullet-background-active: white;
 }
+.tamanoImagen ion-slides{
+   height: calc(100vh - 64px);
+}
+.swiper-slide img{
+   width: 100% !important;
+   object-fit: unset !important;
+}

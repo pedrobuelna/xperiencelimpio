@@ -34,6 +34,9 @@ export class MenuPage implements OnInit {
   ngOnInit() {
     this.inis = '';
   }
+  atras(){
+    this.navCtrl.back();
+  }
   inicio(){
     this.navCtrl.navigateRoot("inicio")
   }
@@ -52,8 +55,12 @@ export class MenuPage implements OnInit {
   iniciarsesion(){
     this.navCtrl.navigateRoot("registro")
   }
+  avisoprivacidad(){
+    this.router.navigate(['/avisoprivacidad']);
+  }
   terminos(){
-    this.navCtrl.navigateRoot("terminos")
+    //this.navCtrl.navigateRoot("terminos")
+    this.router.navigate(['/terminostxt']);
   }
   
 }

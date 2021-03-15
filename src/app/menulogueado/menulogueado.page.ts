@@ -14,13 +14,19 @@ export class MenulogueadoPage implements OnInit {
 
   ngOnInit() {
   }
+  atras(){
+    this.navCtrl.back();
+  }
   iniciologueado(){
     //this.navCtrl.navigateRoot("")
     this.router.navigate(['/iniciologueado']);
   }
+  avisoprivacidad(){
+    this.router.navigate(['/avisoprivacidad']);
+  }
   terminos(){
     //this.navCtrl.navigateRoot("terminos")
-    this.router.navigate(['/terminos']);
+    this.router.navigate(['/terminostxt']);
   }
   menuconcierge(){
     //this.navCtrl.navigateRoot("menuconcierge")
@@ -28,11 +34,11 @@ export class MenulogueadoPage implements OnInit {
   }
   menusereia(){
     //this.navCtrl.navigateRoot("menusereia")
-    this.router.navigate(['/menusereia']);
+    this.router.navigate(['/landingsereia']);
   }
   menuquickfit(){
     //this.navCtrl.navigateRoot("menuquickfit")
-    this.router.navigate(['/menuquickfit']);
+    this.router.navigate(['/landingquickfit']);
   }
   cerrarsesion(){
     this.navCtrl.navigateRoot("registro")
