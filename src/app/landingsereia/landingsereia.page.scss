@@ -1,13 +1,42 @@
 .header{width: 100%;height: 112px;background-color: black;}
 .content_header{padding-top: 75px;text-align: center;font-family: montserratBold;font-size: 15px;text-transform: uppercase;position: relative;letter-spacing: 1px;}
 .arrow-left{display: block;position: absolute;left: 23px;bottom: 0px;}
-.content_botones{width: 197px;margin: 55px auto 0;text-align: center;}
+.content_botones{width: 197px;margin: 15px auto 0;text-align: center;}
 img[alt="difuminado"]{display: block;position: absolute;left: 0;top: 0px;z-index: 3;}
 img[alt="fondo"]{display: block;position: absolute; left: 0; top: 0px; z-index: 2;}
 ion-button{border-radius: 5px;}
 ion-button ion-label{text-transform: uppercase;font-size: 7px;font-family: montserratBold;box-sizing: border-box;}
 .btn1:first-child{margin-bottom: 20px;background-color: black;text-transform: uppercase;font-family: montserratRegular;font-size: 12px;letter-spacing: 2px;height: 40px;}
 .content_banner{position: relative;height: 414px;width: 100%;overflow: hidden;}
-.content_textos{margin: 0 45px;}
+.content_textos{margin: 0 45px;height: 429px;transition: 1s all;overflow: hidden;}
 .titulo{font-family: 'montserratMedium';font-size: 25px;}
 .descripcion{font-family: 'montserratSemibold';font-size: 11px;text-align: justify;line-height: 23px;}
+.content_personas{height: 28px;margin:20px 54px;text-align: center;}
+.content_calendario{height: 456px;transition: all 1s;overflow: hidden;}
+.content_calendario ion-button{--background: black !important;}
+.content_hora {text-align: center;}
+.menos{float: left; color: white; text-align: center; width: 28px; background: black; height: 28px; display: inline-flex; align-items: center;}
+.mas{float: left; color: white; text-align: center; width: 28px; background: black; height: 28px; display: inline-flex; align-items: center; }
+.cantidad{float: left;width: calc(100% - 56px); height: 28px; border: 1px solid gray;text-align: center;}
+.inline-block{display: inline-block;}
+.contentinputhora{height: 29px; width: 85px;border: 1px solid black;text-align: center; margin: 0 20px; vertical-align: middle;line-height: 25px;--padding-top: 0px;--padding-bottom: 0px;}
+.inputhora{border: 1px solid black;height: 29px; width: 75px; text-align: center; margin: 0 20px; vertical-align: middle;}
+.tipohora{background: #cccccc; padding: 10px;color: white;margin-right: 10px;}
+.activo{background-color: black !important;}
+.hide{height: 0px;transition: all 1s;overflow: hidden;}
+
+
+.btn1,.btn2{height: 47px;}
+.btn2{color: black;border:1px solid black;}
+
+.content_enlaces{text-align: center;margin-top: 10px;display: flex;justify-content: space-between;align-items: center;}
+.link1{font-size: 11px;font-family: montserratMedium;color:black}
+.underline{text-decoration: underline;}
+.bg_llamanos{background: rgba(0, 0, 0, 0.5);position: fixed;width: 100%;height: 100vh;top: 0;z-index: 3;}
+.content_llamanos{background: white;width: 85%; margin: auto; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; color: black; padding: 0px 36px; border-radius: 5px; font-size: 17px; text-transform: uppercase; overflow: scroll; border-top: 0; border-bottom: 0; background-color: white;}
+.txt1{font-family: montserratBold;letter-spacing: 1px;}
+.txt2{font-family: montserratRegular;margin-bottom: 5px;}
+.color1{color: white;text-decoration: none;}
+.quitar{display: none;}
+.content_btns{margin-top: 10px;margin-bottom: 5px;}
+.btn1{--background:black;--color:white;background: black;}

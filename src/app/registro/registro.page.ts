@@ -53,7 +53,7 @@ export class RegistroPage implements OnInit {
    })
   }
   ngOnInit() {
-
+    
   }
   registro(){
     this.router.navigate(['crearperfil'])

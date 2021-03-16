@@ -7,12 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { LandingquickfitPageRoutingModule } from './landingquickfit-routing.module';
 
 import { LandingquickfitPage } from './landingquickfit.page';
-
+import { DatePickerModule } from 'ionic4-date-picker';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    DatePickerModule,
     LandingquickfitPageRoutingModule
   ],
   declarations: [LandingquickfitPage]

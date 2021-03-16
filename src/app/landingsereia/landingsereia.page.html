@@ -9,13 +9,52 @@
     <img src="../../assets/images/difuminado.png" alt="difuminado">
     <img src="../../assets/images/landingsereia.png" alt="fondo">
   </div>
-  <div class="content_textos">
-    <p class="titulo">SEREIA BY G</p>
+  <div class="bg_llamanos" [class]="className">
+    <div class="content_llamanos">
+      <!-- <div> 
+        <div class="txt1">llamanos</div>
+        <div class="txt2">33-31212647</div>
+      </div> -->
+        <h1>SEREIA</h1>
+      <ion-grid class="content_btns">
+        <ion-grid>
+          <ion-button style="width: 100px;" color="transparent" class="btn2" (click)="aceptar()">RESERVAR</ion-button>
+          <ion-button style="width: 100px;" color="transparent" class="btn1" (click)="cancelar()">CANCELAR</ion-button>
+        </ion-grid>
+      </ion-grid>
+    </div>
+  </div>
+  <!-- <div class="content_textos" [class]="ocultarTexto"> -->
+  <div class="content_textos" [class]="ocultarTexto">
+    <p class="titulo">Sereia Sunset Club</p>
     <p class="descripcion">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      Sereia es la reina de nuestro hotel, en nuestro bar, vivirás una experiencia de entretenimiento como nunca antes. Te invitamos a probar una atmósfera incomparable con nuestra música y nuestra mixología de autor.
+      <br> <br>
+      Sereia is the crown of the queen and the queen itself, in our sky bar, you can experience a unique entertainment atmosphere. We invite you to try our special mixology and music.
     </p>
     <!-- <div class="content_botones">
-      <ion-button color="transparent" class="btn1">book now</ion-button>
+      <ion-button color="transparent" class="btn1" (click)="calendario()">Reservar</ion-button>
     </div> -->
   </div>
+  <div class="content_calendario" [class]="mostrarCalendario">
+    <ionic-calendar-date-picker [monthLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [yearLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [itemSelectedStyle]="{ 'background': '#000', 'color': '#fff' }" [monthLabels]="['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']" [yearLabelsStyle]="{'font-size': '15px','color':'black'}" [dayLabels]="['DOM', 'LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB']" (onSelect)="dateSelected($event)"></ionic-calendar-date-picker>
+    <!-- <ionic-calendar-date-picker [fromDate]="2021-03-15" [toDate]="2030-03-15" [yearLabelsStyle]="{'font-size': '15px','color':'black'}" [dayLabels]="['DOM', 'LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB']" (onSelect)="dateSelected($event)"></ionic-calendar-date-picker> -->
+    <div class="content_personas">
+      <div>
+        <div class="menos" (click)="menos()"><ion-icon name="remove-outline" style="margin-left: 5px;"></ion-icon></div>
+        <ion-input type="text" [(ngModel)]="cantidad" class="cantidad" disabled></ion-input>
+        <div class="mas" (click)="mas()"><ion-icon name="add-outline" style="margin-left: 7px;"></ion-icon></div>
+      </div>
+    </div>
+    <div class="content_hora">
+      <div class="inline-block hora">Hora</div>
+      <ion-input type="time" [(ngModel)]="hora" class="inline-block contentinputhora"></ion-input>
+      <div class="inline-block tipohora activo">am</div>
+      <div class="inline-block tipohora">pm</div>
+    </div>
+    <div class="content_botones">
+      <ion-button color="transparent" class="btn1" (click)="cancelar()">book now</ion-button>
+    </div>
+  </div>
+  
 </ion-content>
