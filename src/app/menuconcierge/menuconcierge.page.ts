@@ -55,7 +55,7 @@ export class MenuconciergePage implements OnInit {
             app => {
                 console.log(app)
                 this.user_id = app.user_id;
-                this.getMailActivityTeam(23,"switchNoMolestar");//Valet
+                this.getMailActivityTeam(23,"switchNoMolestar");//NO molestar
                 this.getMailActivityTeam(15,"switchValet");//Valet
                 this.getMailActivityTeam(14,"switchToallas");//Toallas
                 this.getMailActivityTeam(16,"switchLimpieza");//Limpieza
@@ -106,7 +106,7 @@ export class MenuconciergePage implements OnInit {
         this.navCtrl.navigateRoot("menulogueado")
     }
     noMolestar(event) {
-        console.log("====TOALLAS====");
+        console.log("====NO MOLESTAR====");
         console.log(event.detail);
         let idType=23;
         if(event.detail.checked==true){
@@ -118,7 +118,7 @@ export class MenuconciergePage implements OnInit {
         }
     }
     valet(event) {
-        console.log("====TOALLAS====");
+        console.log("====VALET====");
         console.log(event.detail);
         let idType=15;
         if(event.detail.checked==true){
@@ -239,6 +239,7 @@ export class MenuconciergePage implements OnInit {
             });
     }
     setMailActivity(team: any, typeId:any,summary:any,switchOption:any) {
+        console.log("RES_USER ID PEDRO: "+this.user_id)
         this.rest.getServicio(this.user_id,typeId).subscribe(servicio=>{
             if(servicio.length==0){
                 this.rest.getMailActivityTeam(team)
@@ -255,7 +256,7 @@ export class MenuconciergePage implements OnInit {
                         res_name: this.name,
                         activity_type_id: typeId,
                         summary: summary,
-                        note: "<p><br></p><table class=\"table table-bordered\"><tbody><tr><td style=\"text-align:center\"><h2><b><h2><font><h2>Tarea</h2></font></h2></b></h2></td><td style=\"text-align:center\"><h2><b><font>Habitación</font></b></h2></td></tr><tr><td>"+summary+"</td><td>ACTIVO <br></br>HORA DE SOLICTUD: " + fecha_hora + "</br></td></tr></tbody></table>",
+                        note: "<p><br></p><table class=\"table table-bordered\"><tbody><tr><td style=\"text-align:center\"><h2><b><h2><font><h2>Auto: "+this.x_descauto+" Placas : "+this.x_placas+"</h2></font></h2></b></h2></td><td style=\"text-align:center\"><h2><b><font>Habitación</font></b></h2></td></tr><tr><td>"+summary+"</td><td>ACTIVO <br></br>HORA DE SOLICTUD: " + fecha_hora + "</br></td></tr></tbody></table>",
                         date_deadline: fManana,
                         automated: "True",
                         user_id: res_users_id,
@@ -270,6 +271,8 @@ export class MenuconciergePage implements OnInit {
                     }
                     this.rest.setServicio(setServicio)
                         .subscribe((newTask) => {
+                            console.log(setServicio)
+                            console.log("GUARDA!")
                             switchOption=true;
                         }, (err) => {
                             console.log(err)
