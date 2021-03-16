@@ -14,6 +14,9 @@ export class MenulogueadoPage implements OnInit {
 
   ngOnInit() {
   }
+  reservacion(){
+    this.navCtrl.navigateRoot("reservacion")
+}
   atras(){
     this.navCtrl.back();
   }

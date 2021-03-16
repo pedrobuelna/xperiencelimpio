@@ -127,6 +127,10 @@ const routes: Routes = [
     path: 'avisoprivacidad',
     loadChildren: () => import('./avisoprivacidad/avisoprivacidad.module').then( m => m.AvisoprivacidadPageModule)
   },
+  {
+    path: 'reservacion',
+    loadChildren: () => import('./reservacion/reservacion.module').then( m => m.ReservacionPageModule)
+  },
 ];
 
 @NgModule({

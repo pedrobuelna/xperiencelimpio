@@ -1,0 +1,26 @@
+.header{width: 100%;height: 112px;background-color: black;position: fixed;top: 0;left: 0;}
+#contenedor{margin: 0 40px;}
+.content_header{padding-top: 75px;text-align: center;font-family: montserratBold;font-size: 15px;text-transform: uppercase;position: relative;letter-spacing: 1px;}
+.arrow-left{display: block;position: absolute;left: 23px;bottom: 0px;}
+.logo2{display: block;margin-top: 112px;}
+.content_buttons{position: absolute;bottom: 150px;left: 50%;transform: translate(-50%, -50%);top: 50%;}
+ion-content{
+    --ion-background-color:#fff;
+}
+ion-button{border-radius: 5px;}
+ion-button ion-label{text-transform: uppercase;font-size: 7px;font-family: montserratBold;box-sizing: border-box;}
+.btnblack{background-color: black;color: white;}
+.parrafo1{color: black;font-family: montserratLight;padding: 0 40px;}
+.content_personas{height: 28px;margin:20px 0;text-align: center;}
+.menos{float: left; color: white; text-align: center; width: 28px; background: black; height: 28px; display: inline-flex; align-items: center;}
+.mas{float: left; color: white; text-align: center; width: 28px; background: black; height: 28px; display: inline-flex; align-items: center; }
+.cantidad{float: left;width: calc(100% - 56px); height: 28px; border: 1px solid gray;text-align: center;}
+#diacalendarios_content{font-family: 'montserratRegular';text-align: center;}
+.diacalendario{width: 50%; display: inline-block;}
+.titulo{text-align: center; background: #868686; color: white; border-left: 1px solid #9e9e9e;}
+.dia{font-size: 36px; padding: 20px 0 10px; border-left: 1px solid #f3f3f3; margin: 0; border-right: 1px solid #f3f3f3;}
+.mesanio{margin: 0;padding-bottom: 10px; border-left: 1px solid #f3f3f3; border-bottom: 1px solid #f3f3f3; }
+.link{font-family: 'montserratLight'; text-decoration: underline; text-align: center; font-size: 12px;}
+.btn3{text-transform: uppercase; font-size: 14px; --background: #868686; --color: white; font-family: 'montserratRegular'; width: 100%;margin-bottom: 80px;}
+.input2{--placeholder-color: black;--placeholder-opacity: 1; border: 1px solid #b7b7b7; margin-top: 25px; margin-bottom: 20px;font-family: 'montserratRegular';font-size: 12px;}
+

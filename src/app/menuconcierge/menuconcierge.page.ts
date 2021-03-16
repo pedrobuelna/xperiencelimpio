@@ -69,6 +69,7 @@ export class MenuconciergePage implements OnInit {
             error => console.error("NO HAY USER_ID")
         );
     }
+    
     atras(){
         this.navCtrl.back();
     }
