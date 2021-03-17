@@ -9,17 +9,23 @@
   <div id="contenedor">
     <div id="diacalendarios_content">
       <div class="diacalendario checkin">
-        <p style="text-align: center;">Chek In:</p>
+        <p style="text-align: center;">Check In:</p>
         <div class="titulo">Jueves</div>
-        <p class="dia">7</p>
-        <p class="mesanio">Enero 2021</p>
+        <p class="dia" (click)="mostrarCheckin()">{{diacheckin}}</p>
+        <p class="mesanio">{{mescheckin}} {{aniocheckin}}</p>
       </div>
       <div class="diacalendario checkout">
-        <p style="text-align: center;">Chek Out:</p>
+        <p style="text-align: center;">Check Out:</p>
         <div class="titulo">Viernes</div>
-        <p class="dia">8</p>
-        <p class="mesanio">Enero 2021</p>
+        <p class="dia" (click)="mostrarCheckout()">{{diacheckout}}</p>
+        <p class="mesanio">{{mescheckout}} {{aniocheckout}}</p>
       </div>
+    </div>
+    <div class="calendariocheckin" [class]="showcalendariocheckin">
+      <ionic-calendar-date-picker [monthLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [yearLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [itemSelectedStyle]="{ 'background': '#000', 'color': '#fff' }" [monthLabels]="['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']" [yearLabelsStyle]="{'font-size': '15px','color':'black'}" [dayLabels]="['DOM', 'LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB']" (onSelect)="fechaCheckin($event)"></ionic-calendar-date-picker>
+    </div>
+    <div class="calendariocheckin" [class]="showcalendariocheckout">
+      <ionic-calendar-date-picker [monthLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [yearLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [itemSelectedStyle]="{ 'background': '#000', 'color': '#fff' }" [monthLabels]="['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']" [yearLabelsStyle]="{'font-size': '15px','color':'black'}" [dayLabels]="['DOM', 'LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB']" (onSelect)="fechaCheckout($event)"></ionic-calendar-date-picker>
     </div>
     <div class="content_personas">
       <div>
@@ -37,319 +43,322 @@
     </div>
     <div class="link">Agregar otra habitación</div>
     <ion-input class="input2" placeholder="Código de Promoción"></ion-input>
-    <ion-button class="btn3">encontrar habitaciones</ion-button>
+    <ion-button class="btn3" (click)="busqueda()">encontrar habitaciones</ion-button>
   </div>
-  <div id="contenido_descripciones">
-    <p class="fechas">Enero 07 - 8 Enero 2021</p>
-    <p class="habitacion_personas">1 habitación, 2 Adultos</p>
-    <ion-button class="btn4">Cambiar Búsqueda</ion-button>
-    <div class="filtros">
-      <div class="filtro">
-        <div class="ordenar">Ordenar Por tarifa</div>
-        <ion-select class="select" value="minmax">
-          <ion-select-option value="minmax" >MIN - MAX</ion-select-option>
-          <ion-select-option value="maxmin">MAX - MIN</ion-select-option>
-        </ion-select>
+  <div class="content_busqueda" [class]="showbusqueda">
+    <div id="contenido_descripciones">
+      <p class="fechas">{{mescheckin}} {{diacheckin}} {{aniocheckin}} <span *ngIf="numeroCantidad>0"> - {{mescheckout}} {{diacheckout}} {{aniocheckout}}</span></p>
+      <p class="habitacion_personas">1 habitación<span *ngIf="numeroCantidad>0">, {{cantidad}}</span><span *ngIf="numeroCantidadMenores>0">, {{cantidadMenores}}</span></p>
+      <ion-button class="btn4">Cambiar Búsqueda</ion-button>
+      <div class="contenedorFullFiltro">
+        <div class="filtro">
+          <div class="ordenar">Ordenar Por tarifa</div>
+          <ion-select class="select" value="minmax" okText="Aceptar" cancelText="Cancelar">
+            <ion-select-option value="minmax" >MIN - MAX</ion-select-option>
+            <ion-select-option value="maxmin">MAX - MIN</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="filtro" style="padding-left: 30px;">
+          <div class="ordenar">Tipo de cambio</div>
+          <ion-select class="select" value="pesos" okText="Aceptar" cancelText="Cancelar">
+            <ion-select-option value="pesos" >MXN - Pesos</ion-select-option>
+            <ion-select-option value="dolares">DLL - Dolares</ion-select-option>
+          </ion-select>
+        </div>
       </div>
-      <div class="filtro" style="padding-left: 30px;">
-        <div class="ordenar">Tipo de cambio</div>
-        <ion-select class="select" value="pesos">
-          <ion-select-option value="pesos" >MXN Pesos</ion-select-option>
-          <ion-select-option value="dolares">DLL - Dolares</ion-select-option>
-        </ion-select>
+      <div class="filtros">
+        <div>
+        </div>
+        <p class="descripcion">
+          <span class="titulo1">tenga en cuenta</span> <br>
+          <span class="descripcion1">
+            Información sobre los servicios del Hotel y las 
+            amenidades afectadas por la pandemia
+            COVID-19, así como una descripción de los 
+            procedimientos obligatorios de salud y 
+            seguridad actuales del hotel, están disponibles
+            aquí o comunicándose directamente con el 
+            hotel al +1 (242) 363-2501. Si su reservación se
+            acerca, consulte con el hotel si hay cambios 
+            importantes. Para obtener la información más 
+            reciente sobre las restricciones de salud y 
+            seguridad en los viajes en general: <br>
+            <span class="link2">haga click aqui:</span>
+          </span>
+        </p>
       </div>
-      <div>
+    </div>
+    <div class="content_habitacion">
+      <div class="titulo2">
+        <span class="fondo">PETITE SECRET ROOM</span>
       </div>
-      <p class="descripcion">
-        <span class="titulo1">tenga en cuenta</span> <br>
-        <span class="descripcion1">
-          Información sobre los servicios del Hotel y las 
-          amenidades afectadas por la pandemia
-          COVID-19, así como una descripción de los 
-          procedimientos obligatorios de salud y 
-          seguridad actuales del hotel, están disponibles
-          aquí o comunicándose directamente con el 
-          hotel al +1 (242) 363-2501. Si su reservación se
-          acerca, consulte con el hotel si hay cambios 
-          importantes. Para obtener la información más 
-          reciente sobre las restricciones de salud y 
-          seguridad en los viajes en general: <br>
-          <span class="link2">haga click aqui:</span>
-        </span>
-      </p>
+      <div class="subtitulo">single room</div>
+      <div class="subcontent_habitacion">
+        <img src="../../assets/images/cuarto_reservacion.jpg" alt="cuarto_reservacion" class="imgcuarto">
+        <div class="contenido_cuarto_desc">
+          <div class="desde">desde</div>
+          <div class="precio">$1200.00 MXN</div>
+          <div class="promedio">promedio por noche</div>
+          <div class="contentimgtext">
+            <img src="../../assets/images/personas.png" alt="personas" class="iconos">
+            <div class="contentcppersonas">
+              <div class="capacidad">Capacidad</div>
+              <div class="personas">2 Personas</div>
+            </div>
+          </div>
+          <div class="contentimgtext">
+            <img src="../../assets/images/icono2.png" alt="cama" class="iconos">
+            <div class="contentcppersonas">
+              <div class="capacidad">1 Cama</div>
+              <div class="personas">Queen size</div>
+            </div>
+          </div>
+          <div class="contentimgtext">
+            <img src="../../assets/images/icono3.png" alt="metros" class="iconos">
+            <div class="contentcppersonas">
+              <div class="capacidad">Tamano</div>
+              <div class="personas">28 m2</div>
+            </div>
+          </div>
+          <div class="contentimgtext">
+            <img src="../../assets/images/icono4.png" alt="app" class="iconos">
+            <div class="contentcppersonas">
+              <div class="capacidad">Llave Digital</div>
+              <div class="personas">(XP App)</div>
+            </div>
+          </div>
+          <img src="../../assets/images/icono5.png" alt="icono5" class="icono5">
+        </div>
+        <ion-button class="btn5" expand="full">Book now</ion-button>
+      </div>
+      <div class="tituloservicios">
+        servicios & amenidades
+        <div class="flecha_servicios"></div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/ap.png" alt="wifi" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Super Wifi Gratis</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/avion.png" alt="avion" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Traslado</div>
+            <div class="texto_serv2">Aeropuerto - Hotel Xperience</div>
+          </div>
+        </div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/bata.png" alt="bata" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Batas de baño de máximo confort</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/caja.png" alt="caja" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Caja fuerte con llave digital</div>
+          </div>
+        </div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/pool.png" alt="pool" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Acceso a Piscinas</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/aire.png" alt="aire" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Sistema de Aire Acondicionado</div>
+          </div>
+        </div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/flor.png" alt="flor" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Sky Bar Xlite</div>
+            <div class="texto_serv2">Rooftop con vista al mar.</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/cel.png" alt="cel" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Registro Digital</div>
+            <div class="texto_serv2">Checkin - Checkout.</div>
+          </div>
+        </div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/tv.png" alt="tv" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Pantalla SmartTV</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/elevador.png" alt="elevador" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Elevador</div>
+          </div>
+        </div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/comida.png" alt="comida" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Acceso a:</div>
+            <div class="texto_serv2">Restaurante: Quick & Fit Cafeteria Comite Xlite</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/bambo.png" alt="bambo" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Blancos con fibras naturales de bambú</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content_habitacion">
+      <div class="titulo2">
+        <span class="fondo">PETITE SECRET ROOM</span>
+      </div>
+      <div class="subtitulo">single room</div>
+      <div class="subcontent_habitacion">
+        <img src="../../assets/images/cuarto_reservacion2.jpg" alt="cuarto_reservacion" class="imgcuarto">
+        <div class="contenido_cuarto_desc">
+          <div class="desde">desde</div>
+          <div class="precio">$1200.00 MXN</div>
+          <div class="promedio">promedio por noche</div>
+          <div class="contentimgtext">
+            <img src="../../assets/images/personas.png" alt="personas" class="iconos">
+            <div class="contentcppersonas">
+              <div class="capacidad">Capacidad</div>
+              <div class="personas">2 Personas</div>
+            </div>
+          </div>
+          <div class="contentimgtext">
+            <img src="../../assets/images/icono2.png" alt="cama" class="iconos">
+            <div class="contentcppersonas">
+              <div class="capacidad">1 Cama</div>
+              <div class="personas">Queen size</div>
+            </div>
+          </div>
+          <div class="contentimgtext">
+            <img src="../../assets/images/icono3.png" alt="metros" class="iconos">
+            <div class="contentcppersonas">
+              <div class="capacidad">Tamano</div>
+              <div class="personas">28 m2</div>
+            </div>
+          </div>
+          <div class="contentimgtext">
+            <img src="../../assets/images/icono4.png" alt="app" class="iconos">
+            <div class="contentcppersonas">
+              <div class="capacidad">Llave Digital</div>
+              <div class="personas">(XP App)</div>
+            </div>
+          </div>
+          <img src="../../assets/images/icono5.png" alt="icono5" class="icono5">
+        </div>
+        <ion-button class="btn5" expand="full">Book now</ion-button>
+      </div>
+      <div class="tituloservicios">
+        servicios & amenidades
+        <div class="flecha_servicios"></div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/ap.png" alt="wifi" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Super Wifi Gratis</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/avion.png" alt="avion" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Traslado</div>
+            <div class="texto_serv2">Aeropuerto - Hotel Xperience</div>
+          </div>
+        </div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/bata.png" alt="bata" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Batas de baño de máximo confort</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/caja.png" alt="caja" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Caja fuerte con llave digital</div>
+          </div>
+        </div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/pool.png" alt="pool" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Acceso a Piscinas</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/aire.png" alt="aire" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Sistema de Aire Acondicionado</div>
+          </div>
+        </div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/flor.png" alt="flor" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Sky Bar Xlite</div>
+            <div class="texto_serv2">Rooftop con vista al mar.</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/cel.png" alt="cel" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Registro Digital</div>
+            <div class="texto_serv2">Checkin - Checkout.</div>
+          </div>
+        </div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/tv.png" alt="tv" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Pantalla SmartTV</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/elevador.png" alt="elevador" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Elevador</div>
+          </div>
+        </div>
+      </div>
+      <div class="content_servicios">
+        <div class="content_img_txt">
+          <img src="../../assets/images/comida.png" alt="comida" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Acceso a:</div>
+            <div class="texto_serv2">Restaurante: Quick & Fit Cafeteria Comite Xlite</div>
+          </div>
+        </div>
+        <div class="content_img_txt">
+          <img src="../../assets/images/bambo.png" alt="bambo" class="icono_servicio">
+          <div class="content_textos">
+            <div class="texto_serv1">Blancos con fibras naturales de bambú</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="content_habitacion">
-    <div class="titulo2">
-      <span class="fondo">PETITE SECRET ROOM</span>
-    </div>
-    <div class="subtitulo">single room</div>
-    <div class="subcontent_habitacion">
-      <img src="../../assets/images/cuarto_reservacion.jpg" alt="cuarto_reservacion" class="imgcuarto">
-      <div class="contenido_cuarto_desc">
-        <div class="desde">desde</div>
-        <div class="precio">$1200.00 MXN</div>
-        <div class="promedio">promedio por noche</div>
-        <div class="contentimgtext">
-          <img src="../../assets/images/personas.png" alt="personas" class="iconos">
-          <div class="contentcppersonas">
-            <div class="capacidad">Capacidad</div>
-            <div class="personas">2 Personas</div>
-          </div>
-        </div>
-        <div class="contentimgtext">
-          <img src="../../assets/images/icono2.png" alt="cama" class="iconos">
-          <div class="contentcppersonas">
-            <div class="capacidad">1 Cama</div>
-            <div class="personas">Queen size</div>
-          </div>
-        </div>
-        <div class="contentimgtext">
-          <img src="../../assets/images/icono3.png" alt="metros" class="iconos">
-          <div class="contentcppersonas">
-            <div class="capacidad">Tamano</div>
-            <div class="personas">28 m2</div>
-          </div>
-        </div>
-        <div class="contentimgtext">
-          <img src="../../assets/images/icono4.png" alt="app" class="iconos">
-          <div class="contentcppersonas">
-            <div class="capacidad">Llave Digital</div>
-            <div class="personas">(XP App)</div>
-          </div>
-        </div>
-        <img src="../../assets/images/icono5.png" alt="icono5" class="icono5">
-      </div>
-      <ion-button class="btn5" expand="full">Book now</ion-button>
-    </div>
-    <div class="tituloservicios">
-      servicios & amenidades
-      <div class="flecha_servicios"></div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/ap.png" alt="wifi" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Super Wifi Gratis</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/avion.png" alt="avion" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Traslado</div>
-          <div class="texto_serv2">Aeropuerto - Hotel Xperience</div>
-        </div>
-      </div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/bata.png" alt="bata" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Batas de baño de máximo confort</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/caja.png" alt="caja" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Caja fuerte con llave digital</div>
-        </div>
-      </div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/pool.png" alt="pool" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Acceso a Piscinas</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/aire.png" alt="aire" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Sistema de Aire Acondicionado</div>
-        </div>
-      </div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/flor.png" alt="flor" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Sky Bar Xlite</div>
-          <div class="texto_serv2">Rooftop con vista al mar.</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/cel.png" alt="cel" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Registro Digital</div>
-          <div class="texto_serv2">Checkin - Checkout.</div>
-        </div>
-      </div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/tv.png" alt="tv" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Pantalla SmartTV</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/elevador.png" alt="elevador" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Elevador</div>
-        </div>
-      </div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/comida.png" alt="comida" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Acceso a:</div>
-          <div class="texto_serv2">Restaurante: Quick & Fit Cafeteria Comite Xlite</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/bambo.png" alt="bambo" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Blancos con fibras naturales de bambú</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="content_habitacion">
-    <div class="titulo2">
-      <span class="fondo">PETITE SECRET ROOM</span>
-    </div>
-    <div class="subtitulo">single room</div>
-    <div class="subcontent_habitacion">
-      <img src="../../assets/images/cuarto_reservacion2.jpg" alt="cuarto_reservacion" class="imgcuarto">
-      <div class="contenido_cuarto_desc">
-        <div class="desde">desde</div>
-        <div class="precio">$1200.00 MXN</div>
-        <div class="promedio">promedio por noche</div>
-        <div class="contentimgtext">
-          <img src="../../assets/images/personas.png" alt="personas" class="iconos">
-          <div class="contentcppersonas">
-            <div class="capacidad">Capacidad</div>
-            <div class="personas">2 Personas</div>
-          </div>
-        </div>
-        <div class="contentimgtext">
-          <img src="../../assets/images/icono2.png" alt="cama" class="iconos">
-          <div class="contentcppersonas">
-            <div class="capacidad">1 Cama</div>
-            <div class="personas">Queen size</div>
-          </div>
-        </div>
-        <div class="contentimgtext">
-          <img src="../../assets/images/icono3.png" alt="metros" class="iconos">
-          <div class="contentcppersonas">
-            <div class="capacidad">Tamano</div>
-            <div class="personas">28 m2</div>
-          </div>
-        </div>
-        <div class="contentimgtext">
-          <img src="../../assets/images/icono4.png" alt="app" class="iconos">
-          <div class="contentcppersonas">
-            <div class="capacidad">Llave Digital</div>
-            <div class="personas">(XP App)</div>
-          </div>
-        </div>
-        <img src="../../assets/images/icono5.png" alt="icono5" class="icono5">
-      </div>
-      <ion-button class="btn5" expand="full">Book now</ion-button>
-    </div>
-    <div class="tituloservicios">
-      servicios & amenidades
-      <div class="flecha_servicios"></div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/ap.png" alt="wifi" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Super Wifi Gratis</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/avion.png" alt="avion" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Traslado</div>
-          <div class="texto_serv2">Aeropuerto - Hotel Xperience</div>
-        </div>
-      </div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/bata.png" alt="bata" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Batas de baño de máximo confort</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/caja.png" alt="caja" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Caja fuerte con llave digital</div>
-        </div>
-      </div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/pool.png" alt="pool" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Acceso a Piscinas</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/aire.png" alt="aire" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Sistema de Aire Acondicionado</div>
-        </div>
-      </div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/flor.png" alt="flor" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Sky Bar Xlite</div>
-          <div class="texto_serv2">Rooftop con vista al mar.</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/cel.png" alt="cel" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Registro Digital</div>
-          <div class="texto_serv2">Checkin - Checkout.</div>
-        </div>
-      </div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/tv.png" alt="tv" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Pantalla SmartTV</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/elevador.png" alt="elevador" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Elevador</div>
-        </div>
-      </div>
-    </div>
-    <div class="content_servicios">
-      <div class="content_img_txt">
-        <img src="../../assets/images/comida.png" alt="comida" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Acceso a:</div>
-          <div class="texto_serv2">Restaurante: Quick & Fit Cafeteria Comite Xlite</div>
-        </div>
-      </div>
-      <div class="content_img_txt">
-        <img src="../../assets/images/bambo.png" alt="bambo" class="icono_servicio">
-        <div class="content_textos">
-          <div class="texto_serv1">Blancos con fibras naturales de bambú</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
 </ion-content>

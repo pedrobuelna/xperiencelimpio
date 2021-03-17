@@ -4,9 +4,7 @@
 .arrow-left{display: block;position: absolute;left: 23px;bottom: 0px;}
 .logo2{display: block;margin-top: 112px;}
 .content_buttons{position: absolute;bottom: 150px;left: 50%;transform: translate(-50%, -50%);top: 50%;}
-ion-content{
-    --ion-background-color:#fff;
-}
+ion-content{--ion-background-color:#fff;}
 ion-button{border-radius: 5px;}
 ion-button ion-label{text-transform: uppercase;font-size: 7px;font-family: montserratBold;box-sizing: border-box;}
 .btnblack{background-color: black;color: white;}
@@ -23,7 +21,6 @@ ion-button ion-label{text-transform: uppercase;font-size: 7px;font-family: monts
 .link{font-family: 'montserratLight'; text-decoration: underline; text-align: center; font-size: 12px;}
 .btn3{text-transform: uppercase; font-size: 14px; --background: #868686; --color: white; font-family: 'montserratRegular'; width: 100%;margin-bottom: 30px;}
 .input2{--placeholder-color: black;--placeholder-opacity: 1; border: 1px solid #b7b7b7; margin-top: 25px; margin-bottom: 20px;font-family: 'montserratRegular';font-size: 12px;}
-#contenido_descripciones{}
 .fechas{font-family: 'montserratRegular'; font-size: 14px;margin: 0 25px;}
 .habitacion_personas{font-family: 'montserratRegular'; font-size: 14px; margin: 0;margin: 0 25px;}
 .btn4{text-transform: uppercase; font-size: 14px; --background: #000; --color: white; font-family: 'montserratRegular';max-width: 200px;margin-bottom: 80px;}
@@ -63,3 +60,17 @@ ion-button ion-label{text-transform: uppercase;font-size: 7px;font-family: monts
 .content_textos{display: inline-block;vertical-align: middle;text-align: left;margin-left: 15px;width: calc(100% - 40px);}
 .texto_serv1{display: inline-block;font-size: 12px; vertical-align: middle;}
 .texto_serv2{font-size: 7px;color: #969696;}
+.content_busqueda{height: 0;transition: all 1s;overflow: hidden;}
+.show{height: auto;transition: all 1s;}
+.calendariocheckin{display: none;}
+.showCal{display: block;}
+// checkbox border color
+
+[aria-checked=true].sc-ion-alert-md .alert-radio-icon.sc-ion-alert-md {
+    border-color: #00000080;
+}
+// checkbox or radio button color
+.alert-radio-inner.sc-ion-alert-md {
+background-color: #00000080 !important;
+}
+.contenedorFullFiltro{background: #f7f7f7;padding:10px 25px 0;}

@@ -38,7 +38,7 @@ export class MenuPage implements OnInit {
     this.navCtrl.back();
   }
   reservacion(){
-    this.navCtrl.navigateRoot("reservacion")
+    this.router.navigate(["/reservacion"])
   }
   inicio(){
     this.navCtrl.navigateRoot("inicio")
