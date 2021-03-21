@@ -257,7 +257,7 @@ export class MenuconciergePage implements OnInit {
                         res_name: this.name,
                         activity_type_id: typeId,
                         summary: summary,
-                        note: "<p><br></p><table class=\"table table-bordered\"><tbody><tr><td style=\"text-align:center\"><h2><b><h2><font><h2>Auto: "+this.x_descauto+" Placas : "+this.x_placas+"</h2></font></h2></b></h2></td><td style=\"text-align:center\"><h2><b><font>Habitación</font></b></h2></td></tr><tr><td>"+summary+"</td><td>ACTIVO <br></br>HORA DE SOLICTUD: " + fecha_hora + "</br></td></tr></tbody></table>",
+                        note: "<p><br></p><table class=\"table table-bordered\"><tbody><tr><td style=\"text-align:center\"><h2><b><h2><font><h2>Valet Parking </h2></font></h2></b></h2></td><td style=\"text-align:center\"><h2><b><font>Habitación</font></b></h2></td></tr><tr><td>Descripción del Auto: "+this.x_descauto+" Placas : "+this.x_placas+"</td><td>ACTIVO <br></br>HORA DE SOLICTUD: " + fecha_hora + "</br></td></tr></tbody></table>",
                         date_deadline: fManana,
                         automated: "True",
                         user_id: res_users_id,

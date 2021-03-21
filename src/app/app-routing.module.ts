@@ -143,6 +143,10 @@ const routes: Routes = [
     path: 'politicascancelacion',
     loadChildren: () => import('./politicascancelacion/politicascancelacion.module').then( m => m.PoliticascancelacionPageModule)
   },
+  {
+    path: 'historialviajes',
+    loadChildren: () => import('./historialviajes/historialviajes.module').then( m => m.HistorialviajesPageModule)
+  },
 ];
 
 @NgModule({
