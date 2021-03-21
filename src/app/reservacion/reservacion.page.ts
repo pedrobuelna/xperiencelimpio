@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {NavController} from '@ionic/angular';
 import { DatePickerModule } from 'ionic4-date-picker';
 @Component({
@@ -7,7 +8,7 @@ import { DatePickerModule } from 'ionic4-date-picker';
   styleUrls: ['./reservacion.page.scss'],
 })
 export class ReservacionPage implements OnInit {
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController,private router: Router) { }
   numeroCantidad:any=1;
   cantidad:any=this.numeroCantidad + " Adulto";
   numeroCantidadMenores:any=0;
@@ -28,20 +29,39 @@ export class ReservacionPage implements OnInit {
   currentmonth:any = this.dateObj.getUTCMonth(); //months from 1-12
   currentday:any = this.dateObj.getUTCDate();
   currentyear:any = this.dateObj.getUTCFullYear();
-
+  diffInDays:any;
+  diffInMs:any;
+  fechaIn:any;
+  fechaOut:any;
   ngOnInit() {
     this.diacheckin = this.currentday;
     this.mescheckin = this.monthNames[this.currentmonth];
     this.aniocheckin = this.currentyear;
+
+    this.diacheckout = this.dateObj.getUTCDate() + 1;
+    this.mescheckout = this.monthNames[this.currentmonth];
+    this.aniocheckout = this.currentyear;
+    // this.fechaIn = this.aniocheckin.toString()+"-"+this.mescheckin.toString()+"-"+this.diacheckin.toString()
+    // this.fechaOut = this.aniocheckout.toString()+"-"+this.mescheckout.toString()+"-"+this.diacheckout.toString()
+    // this.diffInMs   = new Date(parseDate(this.fechaOut)) - new Date(parseDate(fechaIn))
+    // this.diffInDays = this.diffInMs / (1000 * 60 * 60 * 24);
+    // console.log(this.diffInDays)
+  }
+  datosreservacion(){
+    this.router.navigate(['datosreservacion']);
   }
   fechaCheckin($event){
     console.log($event.toLocaleString());
     var month = $event.getUTCMonth(); //months from 1-12
     var day = $event.getUTCDate();
+    var daycheckout = $event.getUTCDate() + 1;
     var year = $event.getUTCFullYear();
     this.diacheckin = day;
     this.mescheckin = this.monthNames[month];
     this.aniocheckin = year
+    this.diacheckout = daycheckout;
+    this.mescheckout = this.monthNames[month];;
+    this.aniocheckout = year
   }
   fechaCheckout($event){
     console.log($event.toLocaleString());

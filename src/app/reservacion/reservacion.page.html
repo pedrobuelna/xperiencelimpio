@@ -41,14 +41,15 @@
         <div class="mas" (click)="masMenores()"><ion-icon name="add-outline" style="margin-left: 7px;"></ion-icon></div>
       </div>
     </div>
-    <div class="link">Agregar otra habitación</div>
+    <!-- <div class="link">Agregar otra habitación</div> -->
     <ion-input class="input2" placeholder="Código de Promoción"></ion-input>
     <ion-button class="btn3" (click)="busqueda()">encontrar habitaciones</ion-button>
   </div>
   <div class="content_busqueda" [class]="showbusqueda">
     <div id="contenido_descripciones">
       <p class="fechas">{{mescheckin}} {{diacheckin}} {{aniocheckin}} <span *ngIf="numeroCantidad>0"> - {{mescheckout}} {{diacheckout}} {{aniocheckout}}</span></p>
-      <p class="habitacion_personas">1 habitación<span *ngIf="numeroCantidad>0">, {{cantidad}}</span><span *ngIf="numeroCantidadMenores>0">, {{cantidadMenores}}</span></p>
+      <p class="habitacion_personas">1 habitación<span *ngIf="numeroCantidad>0">, {{cantidad}}</span><span *ngIf="numeroCantidadMenores>0">, {{cantidadMenores}}</span></p> 
+      <!-- <span>, {{diffInDays}} noche(s)</span>  -->
       <ion-button class="btn4">Cambiar Búsqueda</ion-button>
       <div class="contenedorFullFiltro">
         <div class="filtro">
@@ -58,13 +59,13 @@
             <ion-select-option value="maxmin">MAX - MIN</ion-select-option>
           </ion-select>
         </div>
-        <div class="filtro" style="padding-left: 30px;">
+        <!-- <div class="filtro" style="padding-left: 30px;">
           <div class="ordenar">Tipo de cambio</div>
           <ion-select class="select" value="pesos" okText="Aceptar" cancelText="Cancelar">
             <ion-select-option value="pesos" >MXN - Pesos</ion-select-option>
             <ion-select-option value="dolares">DLL - Dolares</ion-select-option>
           </ion-select>
-        </div>
+        </div> -->
       </div>
       <div class="filtros">
         <div>
@@ -83,7 +84,7 @@
             importantes. Para obtener la información más 
             reciente sobre las restricciones de salud y 
             seguridad en los viajes en general: <br>
-            <span class="link2">haga click aqui:</span>
+            <!-- <span class="link2">haga click aqui:</span> -->
           </span>
         </p>
       </div>
@@ -129,7 +130,7 @@
           </div>
           <img src="../../assets/images/icono5.png" alt="icono5" class="icono5">
         </div>
-        <ion-button class="btn5" expand="full">Book now</ion-button>
+        <ion-button class="btn5" expand="full" (click)="datosreservacion()">Book now</ion-button>
       </div>
       <div class="tituloservicios">
         servicios & amenidades
@@ -265,7 +266,7 @@
           </div>
           <img src="../../assets/images/icono5.png" alt="icono5" class="icono5">
         </div>
-        <ion-button class="btn5" expand="full">Book now</ion-button>
+        <ion-button class="btn5" expand="full" (click)="datosreservacion()">Book now</ion-button>
       </div>
       <div class="tituloservicios">
         servicios & amenidades

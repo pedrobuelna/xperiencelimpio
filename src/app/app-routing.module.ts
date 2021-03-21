@@ -131,6 +131,18 @@ const routes: Routes = [
     path: 'reservacion',
     loadChildren: () => import('./reservacion/reservacion.module').then( m => m.ReservacionPageModule)
   },
+  {
+    path: 'datosreservacion',
+    loadChildren: () => import('./datosreservacion/datosreservacion.module').then( m => m.DatosreservacionPageModule)
+  },
+  {
+    path: 'itinerario',
+    loadChildren: () => import('./itinerario/itinerario.module').then( m => m.ItinerarioPageModule)
+  },
+  {
+    path: 'politicascancelacion',
+    loadChildren: () => import('./politicascancelacion/politicascancelacion.module').then( m => m.PoliticascancelacionPageModule)
+  },
 ];
 
 @NgModule({
