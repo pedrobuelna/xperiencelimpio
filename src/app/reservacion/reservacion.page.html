@@ -95,7 +95,33 @@
       </div>
       <div class="subtitulo">single room</div>
       <div class="subcontent_habitacion">
-        <img src="../../assets/images/cuarto_reservacion.jpg" alt="cuarto_reservacion" class="imgcuarto">
+        <div *ngIf="habitacion.categoria=='Petite secret room - Single room'">
+          <img src="../../assets/images/cuarto1.jpg" alt="cuarto_reservacion" class="imgcuarto">      
+        </div>
+        <div *ngIf="habitacion.categoria=='The roalty den - Owners suite Sky bar'">
+          <img src="../../assets/images/cuarto.jpg" alt="cuarto_reservacion" class="imgcuarto">      
+        </div>
+        <div *ngIf="habitacion.categoria=='Annexpectacular Suite - Annex Suite'">
+          <img src="../../assets/images/cuarto5.jpg" alt="cuarto_reservacion" class="imgcuarto">      
+        </div>
+        <div *ngIf="habitacion.categoria=='Happy Nest - Double room'">
+          <img src="../../assets/images/cuarto4.jpg" alt="cuarto_reservacion" class="imgcuarto">      
+        </div>
+        <div *ngIf="habitacion.categoria=='Cool nest - Suite'">
+          <img src="../../assets/images/cuarto3.jpg" alt="cuarto_reservacion" class="imgcuarto">      
+        </div>
+        <div *ngIf="habitacion.categoria=='Mini sunsetlover Suite - Junior Suite'">
+          <img src="../../assets/images/cuarto2.jpg" alt="cuarto_reservacion" class="imgcuarto">      
+        </div>
+        <div *ngIf="habitacion.categoria=='Happy Nest - Suite'">
+          <img src="../../assets/images/cuarto6.jpg" alt="cuarto_reservacion" class="imgcuarto">      
+        </div>
+        <div *ngIf="habitacion.categoria=='Sunset lover Suite - Double Suite'">
+          <img src="../../assets/images/cuarto3.jpg" alt="cuarto_reservacion" class="imgcuarto">      
+        </div>
+        <div *ngIf="habitacion.categoria=='Cool nest - Junior Suite'">
+          <img src="../../assets/images/cuarto7.jpg" alt="cuarto_reservacion" class="imgcuarto">      
+        </div>
         <div class="contenido_cuarto_desc">
           <div class="desde">desde</div>
           <div class="precio">{{habitacion.precio}} <span class="tipomoneda">MXN</span></div>
@@ -104,21 +130,115 @@
             <img src="../../assets/images/personas.png" alt="personas" class="iconos">
             <div class="contentcppersonas">
               <div class="capacidad">Capacidad</div>
-              <div class="personas">2 Personas</div>
+              <div *ngIf="habitacion.categoria=='Petite secret room - Single room'">
+                <div class="personas">2 Personas</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='The roalty den - Owners suite Sky bar'">
+                <div class="personas">2 Personas</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Annexpectacular Suite - Annex Suite'">
+                <div class="personas">4 Personas</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Happy Nest - Double room'">
+                <div class="personas">4 Personas</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Cool nest - Suite'">
+                <div class="personas">2 Personas</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Mini sunsetlover Suite - Junior Suite'">
+                <div class="personas">2 Personas</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Happy Nest - Suite'">
+                <div class="personas">4 Personas</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Sunset lover Suite - Double Suite'">
+                <div class="personas">4 Personas</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Cool nest - Junior Suite'">
+                <div class="personas">2 Personas</div>
+              </div>
             </div>
           </div>
           <div class="contentimgtext">
             <img src="../../assets/images/icono2.png" alt="cama" class="iconos">
             <div class="contentcppersonas">
-              <div class="capacidad">1 Cama</div>
-              <div class="personas">Queen size</div>
+              <div *ngIf="habitacion.categoria=='Petite secret room - Single room'">
+                <div class="capacidad">1 Cama</div>
+                <div class="personas">Queen size</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='The roalty den - Owners suite Sky bar'">
+                <div class="capacidad">1 Cama</div>
+                <div class="personas">Queen size</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Annexpectacular Suite - Annex Suite'">
+                <div class="capacidad">2 Camas</div>
+                <div class="personas">Queen size</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Happy Nest - Double room'">
+                <div class="capacidad">2 Camas</div>
+                <div class="personas">Queen size</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Cool nest - Suite'">
+                <div class="capacidad">1 Cama</div>
+                <div class="personas">Queen size</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Mini sunsetlover Suite - Junior Suite'">
+                <div class="capacidad">1 Cama</div>
+                <div class="personas">Queen size</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Happy Nest - Suite'">
+                <div class="capacidad">2 Camas</div>
+                <div class="personas">Queen size</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Sunset lover Suite - Double Suite'">
+                <div class="capacidad">2 Camas</div>
+                <div class="personas">Queen size</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Cool nest - Junior Suite'">
+                <div class="capacidad">1 Camas</div>
+                <div class="personas">Queen size</div>
+              </div>
             </div>
           </div>
           <div class="contentimgtext">
             <img src="../../assets/images/icono3.png" alt="metros" class="iconos">
             <div class="contentcppersonas">
-              <div class="capacidad">Tamano</div>
-              <div class="personas">28 m2</div>
+              <div *ngIf="habitacion.categoria=='Petite secret room - Single room'">
+                <div class="capacidad">Tamano</div>
+                <div class="personas">18 m2</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='The roalty den - Owners suite Sky bar'">
+                <div class="capacidad">Tamano</div>
+                <div class="personas">58 m2</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Annexpectacular Suite - Annex Suite'">
+                <div class="capacidad">Tamano</div>
+                <div class="personas">44 m2</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Happy Nest - Double room'">
+                <div class="capacidad">Tamano</div>
+                <div class="personas">27 m2</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Cool nest - Suite'">
+                <div class="capacidad">Tamano</div>
+                <div class="personas">28 m2</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Mini sunsetlover Suite - Junior Suite'">
+                <div class="capacidad">Tamano</div>
+                <div class="personas">29 m2</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Happy Nest - Suite'">
+                <div class="capacidad">Tamano</div>
+                <div class="personas">34.5 m2</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Sunset lover Suite - Double Suite'">
+                <div class="capacidad">Tamano</div>
+                <div class="personas">35 m2</div>
+              </div>
+              <div *ngIf="habitacion.categoria=='Cool nest - Junior Suite'">
+                <div class="capacidad">Tamano</div>
+                <div class="personas">28 m2</div>
+              </div>
             </div>
           </div>
           <div class="contentimgtext">
@@ -225,7 +345,7 @@
         </div>
       </div>
     </div>
-    <div class="content_habitacion">
+    <!-- <div class="content_habitacion">
       <div class="titulo2">
         <span class="fondo">PETITE SECRET ROOM</span>
       </div>
@@ -360,6 +480,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </ion-content>

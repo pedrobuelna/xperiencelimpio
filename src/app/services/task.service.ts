@@ -86,7 +86,7 @@ export class TaskService {
     return this.http.delete(path);
   }
   getHabitaciones(checkin:any,checkout:any){
-    const path = `${this.api2}/rpc/disponibilidad?d_checkin=${checkin}&d_checkout=${checkout}`
+    const path = `${this.api2}/rpc/disponibilidad_unica?d_checkin=${checkin}&d_checkout=${checkout}`
     return this.http.get<any>(path);
   }
   // getTask(id: string) {
