@@ -64,9 +64,14 @@ export class ReservacionPage implements OnInit {
         // this.diffInDays = this.diffInMs / (1000 * 60 * 60 * 24);
         // console.log(this.diffInDays)
     }
-    datosreservacion() {
-
-        //this.router.navigate(['datosreservacion']);
+    datosreservacion(categoria_id){
+      this.router.navigate(['/datosreservacion'], {
+        queryParams: {
+          categoria_id: categoria_id,
+          fechacheckin:this.fechachekincompleta,
+          fechacheckout:this.fechachekoutcompleta,
+        }
+      });
     }
     fechaCheckin($event) {
         console.log($event.toLocaleString());
@@ -81,8 +86,8 @@ export class ReservacionPage implements OnInit {
         this.mescheckout = this.monthNames[month];
         this.aniocheckout = year
 
-        this.fechachekincompleta = this.aniocheckin + "-" + month + "-" + this.diacheckin;
-        this.fechachekoutcompleta = this.aniocheckout + "-" + month + "-" + this.diacheckout
+        this.fechachekincompleta = this.aniocheckin + "-" + ($event.getUTCMonth()+1) + "-" + this.diacheckin;
+        this.fechachekoutcompleta = this.aniocheckout + "-" + ($event.getUTCMonth()+1) + "-" + this.diacheckout
         console.log("CHECKIN  en fecha checkin" + this.fechachekincompleta)
         console.log("CHECKOUT  en fecha checkin" + this.fechachekoutcompleta)
     }
@@ -94,7 +99,7 @@ export class ReservacionPage implements OnInit {
         this.diacheckout = day;
         this.mescheckout = this.monthNames[month];;
         this.aniocheckout = year
-        this.fechachekoutcompleta = this.aniocheckout + "-" + month + "-" + this.diacheckout
+        this.fechachekoutcompleta = this.aniocheckout + "-" + ($event.getUTCMonth()+1) + "-" + this.diacheckout
         console.log("CHECKIN  en fecha checkout" + this.fechachekincompleta)
         console.log("CHECKOUT  en fecha checkout" + this.fechachekoutcompleta)
     }

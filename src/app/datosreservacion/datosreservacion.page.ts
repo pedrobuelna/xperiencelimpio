@@ -9,6 +9,7 @@ import {
     FormControl
 } from "@angular/forms";
 import {
+  ActivatedRoute,
     Router
 } from '@angular/router';
 import {
@@ -29,7 +30,7 @@ export class DatosreservacionPage implements OnInit {
         private navCtrl: NavController, 
         public formBuilder: FormBuilder,
         private router: Router,
-        private apiRest: TaskService,
+        private apiRest: TaskService,private route: ActivatedRoute,
         private nativeStorage:NativeStorage) {
         this.ionicForm = this.formBuilder.group({
             nombre: ['', [Validators.required]],
@@ -42,7 +43,11 @@ export class DatosreservacionPage implements OnInit {
     get errorControl() {
         return this.ionicForm.controls;
     }
-    ngOnInit() {}
+    ngOnInit() {
+      this.route.queryParams.subscribe(queryParams =>  
+        console.log("VALOR ID: "+queryParams.categoria_id+" VALOR FECHA CHECKIN: "+queryParams.fechacheckin+" VALOR FECHA CECKOUT: "+queryParams.fechacheckout)
+      );
+    }
     politicascancelacion() {
         this.router.navigate(['politicascancelacion'])
     }
