@@ -89,16 +89,16 @@
         </p>
       </div>
     </div>
-    <div class="content_habitacion">
+    <div class="content_habitacion" *ngFor="let habitacion  of habitaciones;let i = index;let last = last;">
       <div class="titulo2">
-        <span class="fondo">PETITE SECRET ROOM</span>
+        <span class="fondo">{{habitacion.categoria}}</span>
       </div>
       <div class="subtitulo">single room</div>
       <div class="subcontent_habitacion">
         <img src="../../assets/images/cuarto_reservacion.jpg" alt="cuarto_reservacion" class="imgcuarto">
         <div class="contenido_cuarto_desc">
           <div class="desde">desde</div>
-          <div class="precio">$1200.00 MXN</div>
+          <div class="precio">{{habitacion.precio}} <span class="tipomoneda">MXN</span></div>
           <div class="promedio">promedio por noche</div>
           <div class="contentimgtext">
             <img src="../../assets/images/personas.png" alt="personas" class="iconos">
