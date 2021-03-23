@@ -9,6 +9,7 @@ export class TaskService {
   //private api = 'https://jsonplaceholder.typicode.com';
   //private api = 'http://webservicearca.000webhostapp.com';
   private api = 'http://unchx.ddns.net:3001';
+  private api2 = 'http://portal.thexperiencehotel.com:3001';
   constructor(
     private http: HttpClient
   ) {}
@@ -82,6 +83,10 @@ export class TaskService {
   } 
   deleteServicio(user_id:any,activity_type_id:any) {
     const path = `${this.api}/mail_activity?res_id=eq.${user_id}&activity_type_id=eq.${activity_type_id}`
+    return this.http.delete(path);
+  }
+  getHabitaciones(checkin:any,checkout:any){
+    const path = `${this.api2}/rpc/disponibilidadunica?d_checkin=2021-03-21&d_checkout=2021-03-22`
     return this.http.delete(path);
   }
   // getTask(id: string) {
