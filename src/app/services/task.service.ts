@@ -86,19 +86,15 @@ export class TaskService {
     return this.http.delete(path);
   }
   getHabitaciones(checkin:any,checkout:any){
-    const path = `${this.api2}/rpc/disponibilidad_unica?d_checkin=${checkin}&d_checkout=${checkout}`
+    const path = `${this.api2}/rpc/disponibilidad_unica?d_checkin=${checkin}&d_checkout=${checkout}&capacity=gte.1`
     return this.http.get<any>(path);
   }
-  // getTask(id: string) {
-  //   //const path = `${this.api}/todos/${id}`;
-  //   const path = `${this.api}/refacciones/${id}`;
-  //   return this.http.get<Task>(path);
-  // }
-  
-  // updateTask(task: Task) {
-  //  // const path = `${this.api}/todos/${task.id}`;
-  //   const path = `${this.api}/refacciones/${task.id}`;
-  //   return this.http.put<Task>(path, task);
-  // }
-  
+  postCrearReserva(data:any){
+    const path = `${this.api2}/crear_reserva`
+    return this.http.post(path,data);
+  }
+  getDisponibilidad(checkIn:any,checkOut:any,idCategoria:any){
+    const path = `${this.api2}/rpc/disponibilidad?d_checkin=${checkIn}&d_checkout=${checkOut}&idCategoria=eq.${idCategoria}&limit=1`
+    return this.http.get<any>(path);
+  }
 }

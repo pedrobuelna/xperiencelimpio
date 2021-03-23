@@ -96,30 +96,22 @@ export class HomePage {
   };
   constructor(public navCtrl: NavController,private renderer: Renderer2,
     private nativeStorage:NativeStorage,public platform:Platform) {
-      //show loader
-      // this.platform.ready().then(() => {
-      //   // this.nativeStorage.remove('user_id');
-      //   // this.nativeStorage.clear();
-      //   this.nativeStorage.getItem("user_id").then(
-      //     user_id=>{
-      //       //hide loader
-      //       this.navCtrl.navigateRoot("menuconcierge")
-      //     },
-      //     error=>{
-      //       this.nativeStorage.getItem("primeravista")
-      //       .then(
-      //           data => {
-      //             //hide loader
-      //             this.navCtrl.navigateRoot("xperience")
-      //           },
-      //           error => {
-      //             //hide loader
-      //             this.nativeStorage.setItem("primeravista","ok").then(()=>{console.log("Se guardo")},error=>console.log("No se guardo"));
-      //           }
-      //       );    
-      //     }
-      //   );
-      // });
+        this.platform.ready().then(() => {
+            this.nativeStorage.getItem('saltarIntro')
+            .then(
+                saltarIntro => {
+                    this.navCtrl.navigateRoot("inicio");
+                },
+                error =>{
+                    this.nativeStorage.setItem('saltarIntro', {
+                        status:true
+                    }).then(
+                        () => {},
+                        
+                    );
+                }
+            );            
+        });
     }
   @ViewChild('slides') slides;
   @ViewChild('slides2') slides2;
