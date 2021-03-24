@@ -49,20 +49,21 @@ export class ReservacionPage implements OnInit {
     fechaOut: any;
     habitaciones: any;
     ngOnInit() {
-        this.diacheckin = this.currentday;
-        this.mescheckin = this.monthNames[this.currentmonth];
-        this.aniocheckin = this.currentyear;
+      this.diacheckin = this.currentday;
+      this.mescheckin = this.monthNames[this.currentmonth];
+      this.aniocheckin = this.currentyear;
 
-        this.diacheckout = this.dateObj.getUTCDate() + 1;
-        this.mescheckout = this.monthNames[this.currentmonth];
-        this.aniocheckout = this.currentyear;
+      this.diacheckout = this.dateObj.getUTCDate() + 1;
+      this.mescheckout = this.monthNames[this.currentmonth];
+      this.aniocheckout = this.currentyear;
+      this.fechachekincompleta = this.aniocheckin+"-"+(this.dateObj.getUTCMonth()+1)+"-"+this.diacheckin
+      this.fechachekoutcompleta= this.aniocheckout+"-"+(this.dateObj.getUTCMonth()+1)+"-"+this.diacheckout
 
-
-        // this.fechaIn = this.aniocheckin.toString()+"-"+this.mescheckin.toString()+"-"+this.diacheckin.toString()
-        // this.fechaOut = this.aniocheckout.toString()+"-"+this.mescheckout.toString()+"-"+this.diacheckout.toString()
-        // this.diffInMs   = new Date(parseDate(this.fechaOut)) - new Date(parseDate(fechaIn))
-        // this.diffInDays = this.diffInMs / (1000 * 60 * 60 * 24);
-        // console.log(this.diffInDays)
+      // this.fechaIn = this.aniocheckin.toString()+"-"+this.mescheckin.toString()+"-"+this.diacheckin.toString()
+      // this.fechaOut = this.aniocheckout.toString()+"-"+this.mescheckout.toString()+"-"+this.diacheckout.toString()
+      // this.diffInMs   = new Date(parseDate(this.fechaOut)) - new Date(parseDate(fechaIn))
+      // this.diffInDays = this.diffInMs / (1000 * 60 * 60 * 24);
+      // console.log(this.diffInDays)
     }
     datosreservacion(categoria_id){
       this.router.navigate(['/datosreservacion'], {
@@ -70,6 +71,9 @@ export class ReservacionPage implements OnInit {
           categoria_id: categoria_id,
           fechacheckin:this.fechachekincompleta,
           fechacheckout:this.fechachekoutcompleta,
+          cantidadpersonas: (this.numeroCantidad + this.numeroCantidadMenores),
+          ninos:this.numeroCantidadMenores,
+          adultos: this.numeroCantidad
         }
       });
     }
@@ -85,7 +89,6 @@ export class ReservacionPage implements OnInit {
         this.diacheckout = daycheckout;
         this.mescheckout = this.monthNames[month];
         this.aniocheckout = year
-
         this.fechachekincompleta = this.aniocheckin + "-" + ($event.getUTCMonth()+1) + "-" + this.diacheckin;
         this.fechachekoutcompleta = this.aniocheckout + "-" + ($event.getUTCMonth()+1) + "-" + this.diacheckout
         console.log("CHECKIN  en fecha checkin" + this.fechachekincompleta)
@@ -121,7 +124,7 @@ export class ReservacionPage implements OnInit {
     }
     busqueda() {
         if (this.showbusqueda == "") {
-            this.taskService.getHabitaciones(this.fechachekincompleta, this.fechachekoutcompleta)
+            this.taskService.getHabitaciones(this.fechachekincompleta, this.fechachekoutcompleta,(this.numeroCantidad + this.numeroCantidadMenores))
                 .subscribe(habitaciones => {
                     this.habitaciones = habitaciones
                     this.showbusqueda = "show";
@@ -134,39 +137,47 @@ export class ReservacionPage implements OnInit {
         this.navCtrl.back();
     }
     mas() {
+      if((this.numeroCantidad + this.numeroCantidadMenores) <=3 ){
         this.numeroCantidad += 1
         if (this.numeroCantidad > 1) {
             this.cantidad = this.numeroCantidad + " Adultos";
         } else {
             this.cantidad = this.numeroCantidad + " Adulto";
         }
+      } 
     }
     menos() {
+      if((this.numeroCantidad + this.numeroCantidadMenores) <=4 ){
         if (this.numeroCantidad > 1) {
-            this.numeroCantidad -= 1
-            if (this.numeroCantidad >= 2) {
-                this.cantidad = this.numeroCantidad + " Adultos";
-            } else {
-                this.cantidad = this.numeroCantidad + " Adulto";
-            }
+          this.numeroCantidad -= 1
+          if (this.numeroCantidad >= 2) {
+              this.cantidad = this.numeroCantidad + " Adultos";
+          } else {
+              this.cantidad = this.numeroCantidad + " Adulto";
+          }
         }
+      }
     }
     masMenores() {
+      if((this.numeroCantidad + this.numeroCantidadMenores) <=3 ){
         this.numeroCantidadMenores += 1
         if (this.numeroCantidadMenores > 1) {
             this.cantidadMenores = this.numeroCantidadMenores + " Menores";
         } else {
             this.cantidadMenores = this.numeroCantidadMenores + " Menor";
         }
+      }
     }
     menosMenores() {
         if (this.numeroCantidadMenores > 0) {
+          if((this.numeroCantidad + this.numeroCantidadMenores) <=4 ){
             this.numeroCantidadMenores -= 1
             if (this.numeroCantidadMenores >= 2) {
                 this.cantidadMenores = this.numeroCantidadMenores + " Menores";
             } else {
                 this.cantidadMenores = this.numeroCantidadMenores + " Menor";
             }
+          }
         }
     }
 }

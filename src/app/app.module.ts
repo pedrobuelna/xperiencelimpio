@@ -12,11 +12,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { SMS } from '@ionic-native/sms/ngx';
 import { DatePickerModule } from 'ionic4-date-picker';
+import { LOCALE_ID } from '@angular/core';
+import es from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(es);
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
   providers: [
+    {provide: LOCALE_ID, useValue: 'es-MX' },
     StatusBar,
     SplashScreen,
     NativeStorage,

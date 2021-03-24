@@ -7,18 +7,18 @@
   </div>
   <div class="content_banner">
     <img src="../../assets/images/bannerdatosreservacion.jpg" alt="fondo">
-    <div class="descripcion1">Xperience Mazatlán  - 25 de sep. de 2021 - 27 sep. de 2021</div>
+    <div class="descripcion1">Xperience Mazatlán  - {{ orderObj.fechacheckin | date:'fullDate'}} - {{ orderObj.fechacheckout | date:'fullDate' }}</div>
     <img src="../../assets/images/enjoyxperience.png" alt="enjoyxperience">
     <div class="content_llegadasalida">
       <div class="subcontent_llegadasalida">
         <div class="llegada">Llegada</div>
-        <div class="texto_llegada">vie. 25 de septiembre de 2021</div>
+        <div class="texto_llegada">{{ orderObj.fechacheckin | date:'fullDate'}}</div>
         <div class="hora">14:00</div>
       </div>
       <div class="separador"></div>
       <div class="subcontent_llegadasalida">
         <div class="llegada">Salida</div>
-        <div class="texto_llegada">dom. 27 de septiembre de 2021</div>
+        <div class="texto_llegada">{{ orderObj.fechacheckout | date:'fullDate' }}</div>
         <div class="hora">11:00</div>
       </div>
     </div>

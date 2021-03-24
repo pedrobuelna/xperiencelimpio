@@ -85,8 +85,8 @@ export class TaskService {
     const path = `${this.api}/mail_activity?res_id=eq.${user_id}&activity_type_id=eq.${activity_type_id}`
     return this.http.delete(path);
   }
-  getHabitaciones(checkin:any,checkout:any){
-    const path = `${this.api2}/rpc/disponibilidad_unica?d_checkin=${checkin}&d_checkout=${checkout}&capacity=gte.1`
+  getHabitaciones(checkin:any,checkout:any,cantidadpersonas:any){
+    const path = `${this.api2}/rpc/disponibilidad_unica?d_checkin=${checkin}&d_checkout=${checkout}&capacity=gte.${cantidadpersonas}`
     return this.http.get<any>(path);
   }
   postCrearReserva(data:any){
