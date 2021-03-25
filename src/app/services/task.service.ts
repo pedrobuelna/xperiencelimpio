@@ -10,6 +10,7 @@ export class TaskService {
   //private api = 'http://webservicearca.000webhostapp.com';
   private api = 'http://unchx.ddns.net:3001';
   private api2 = 'http://portal.thexperiencehotel.com:3001';
+  private api3004 = 'http://portal.thexperiencehotel.com:3004';
   constructor(
     private http: HttpClient
   ) {}
@@ -90,11 +91,11 @@ export class TaskService {
     return this.http.get<any>(path);
   }
   postCrearReserva(data:any){
-    const path = `${this.api2}/crear_reserva`
+    const path = `${this.api3004}/crear_reserva`
     return this.http.post(path,data);
   }
   getDisponibilidad(checkIn:any,checkOut:any,idCategoria:any){
-    const path = `${this.api2}/rpc/disponibilidad?d_checkin=${checkIn}&d_checkout=${checkOut}&idCategoria=eq.${idCategoria}&limit=1`
+    const path = `${this.api2}/rpc/disponibilidad?d_checkin=${checkIn}&d_checkout=${checkOut}&categoria_id=${idCategoria}`
     return this.http.get<any>(path);
   }
 }

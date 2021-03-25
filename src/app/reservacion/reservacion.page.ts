@@ -12,6 +12,9 @@ import {
     TaskService
 } from '../services/task.service';
 import {
+    NativeStorage
+} from '@ionic-native/native-storage/ngx';
+import {
     DatePickerModule
 } from 'ionic4-date-picker';
 @Component({
@@ -20,7 +23,11 @@ import {
     styleUrls: ['./reservacion.page.scss'],
 })
 export class ReservacionPage implements OnInit {
-    constructor(private navCtrl: NavController, private router: Router, private taskService: TaskService) {}
+    constructor(
+        private navCtrl: NavController, 
+        private router: Router, 
+        private taskService: TaskService,
+        private nativeStorage:NativeStorage) {}
     numeroCantidad: any = 1;
     cantidad: any = this.numeroCantidad + " Adulto";
     numeroCantidadMenores: any = 0;
@@ -66,19 +73,37 @@ export class ReservacionPage implements OnInit {
       // console.log(this.diffInDays)
     }
     datosreservacion(categoria_id){
-      this.router.navigate(['/datosreservacion'], {
-        queryParams: {
-          categoria_id: categoria_id,
-          fechacheckin:this.fechachekincompleta,
-          fechacheckout:this.fechachekoutcompleta,
-          cantidadpersonas: (this.numeroCantidad + this.numeroCantidadMenores),
-          ninos:this.numeroCantidadMenores,
-          adultos: this.numeroCantidad
-        }
-      });
+        this.nativeStorage.getItem('app')
+        .then(
+            app => {
+                console.log("APP NS");
+                console.log(app);
+                this.router.navigate(['/datosreservacion'], {
+                    queryParams: {
+                    categoria_id: categoria_id,
+                    fechacheckin:this.fechachekincompleta,
+                    fechacheckout:this.fechachekoutcompleta,
+                    cantidadpersonas: (this.numeroCantidad + this.numeroCantidadMenores),
+                    ninos:this.numeroCantidadMenores,
+                    adultos: this.numeroCantidad
+                    }
+                });
+            },
+            error => {
+                alert("Es necesario estar registrado para poder realizar una reservación.")        
+            }
+        );
     }
     fechaCheckin($event) {
-        console.log($event.toLocaleString());
+        // console.log("==MES==");
+        // console.log((("0" + ($event.getUTCMonth()+1)).slice(-2)));
+        // let mes= $event.getUTCMonth()+1;
+        // console.log($event.getUTCMonth().toISOString().slice(0,10));
+        // console.log(mes)
+        // console.log("==Event==");
+        // console.log($event);
+        // console.log("==toLocaleString==");
+        // console.log($event.toLocaleString());
         var month = $event.getUTCMonth(); //months from 1-12
         var day = $event.getUTCDate();
         var daycheckout = $event.getUTCDate() + 1;
@@ -89,22 +114,28 @@ export class ReservacionPage implements OnInit {
         this.diacheckout = daycheckout;
         this.mescheckout = this.monthNames[month];
         this.aniocheckout = year
-        this.fechachekincompleta = this.aniocheckin + "-" + ($event.getUTCMonth()+1) + "-" + this.diacheckin;
-        this.fechachekoutcompleta = this.aniocheckout + "-" + ($event.getUTCMonth()+1) + "-" + this.diacheckout
+        this.fechachekincompleta = this.aniocheckin + "-" + (("0" + ($event.getUTCMonth()+1)).slice(-2)) + "-" + this.diacheckin;
+        this.fechachekoutcompleta = this.aniocheckout + "-" + (("0" + ($event.getUTCMonth()+1)).slice(-2)) + "-" + this.diacheckout
         console.log("CHECKIN  en fecha checkin" + this.fechachekincompleta)
-        console.log("CHECKOUT  en fecha checkin" + this.fechachekoutcompleta)
+        console.log("CHECKOUT  en fecha checkin" + this.fechachekoutcompleta);
+
+        
     }
     fechaCheckout($event) {
-        console.log($event.toLocaleString());
+        // console.log("==Event==");
+        // console.log($event);
+        // console.log("==toLocaleString==");
+        // console.log($event.toLocaleString());
         var month = $event.getUTCMonth(); //months from 1-12
         var day = $event.getUTCDate();
         var year = $event.getUTCFullYear();
         this.diacheckout = day;
-        this.mescheckout = this.monthNames[month];;
+        this.mescheckout = this.monthNames[month];
         this.aniocheckout = year
-        this.fechachekoutcompleta = this.aniocheckout + "-" + ($event.getUTCMonth()+1) + "-" + this.diacheckout
+        this.fechachekoutcompleta = this.aniocheckout + "-" + (("0" + ($event.getUTCMonth()+1)).slice(-2)) + "-" + this.diacheckout
         console.log("CHECKIN  en fecha checkout" + this.fechachekincompleta)
-        console.log("CHECKOUT  en fecha checkout" + this.fechachekoutcompleta)
+        console.log("CHECKOUT  en fecha checkout" + this.fechachekoutcompleta);
+        
     }
     mostrarCheckin() {
         if (this.showcalendariocheckin == "") {
@@ -128,6 +159,11 @@ export class ReservacionPage implements OnInit {
                 .subscribe(habitaciones => {
                     this.habitaciones = habitaciones
                     this.showbusqueda = "show";
+                    //$('#divHabitaciones').scrollTop(); //TODO activar jquery para hacer el scroll
+                    setTimeout(function(){ 
+                        document.getElementById("divHabitaciones").scrollIntoView(false);
+                    }, 500);
+                    
                 });
         } else {
             //this.showbusqueda="";
