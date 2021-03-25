@@ -65,21 +65,27 @@ export class DatosreservacionPage implements OnInit {
         this.router.navigate(['politicascancelacion'])
     }
     submitForm() {
+        console.log("categoria id: " + this.orderObj.categoria_id)
+        console.log("fechacheckin: " + this.orderObj.fechacheckin)
+        console.log("fechacheckout: " + this.orderObj.fechacheckout)
+        console.log("adultos: " + this.orderObj.adultos)
+        console.log("ninos" + this.orderObj.ninos)
+
         this.nativeStorage.getItem('app')
             .then(
                 app => {
                     let id=app.user_id;
-                    let checkIn = this.orderObj.fechacheckin + " 13:00:00";
-                    let checkOut = this.orderObj.fechacheckout + " 11:00:00";
+                    let checkIn = this.orderObj.fechacheckin + " 18:00:00";
+                    let checkOut = this.orderObj.fechacheckout + " 16:00:00";
                     let idCategoria = this.orderObj.categoria_id;
-
+                    
                     this.apiRest.getDisponibilidad(checkIn,checkOut,idCategoria).subscribe(
                         dataHabitacion =>{
                             console.log("DATA HABITACION");
                             console.log(dataHabitacion);
                             dataHabitacion=dataHabitacion[0];
                             let id_room = dataHabitacion.room_id;
-                            let habitacion = "Habitación " + id_room + " " +dataHabitacion.habitacion + dataHabitacion.categoria
+                            let habitacion = dataHabitacion.habitacion + dataHabitacion.categoria
                             let datosReserva = {
                                 id,
                                 f_checkin: checkIn,
@@ -91,8 +97,12 @@ export class DatosreservacionPage implements OnInit {
                             }
                             this.apiRest.postCrearReserva(datosReserva).subscribe(reservacion =>{
                                 console.log(reservacion);
-                                alert("Reservación generada de manera exitosa.");
-                                this.router.navigate(['/datosreservacion']);
+                                console.log(Number.isInteger(reservacion));
+                                if(Number.isInteger(reservacion[0])){
+                                    alert("Reservación generada de manera exitosa.");
+                                    this.router.navigate(['/inicio']);
+                                }else alert(reservacion);
+
                             });
                         }
                     );
@@ -105,9 +115,7 @@ export class DatosreservacionPage implements OnInit {
     
 
         //Obtener idRoom, habitacion + categoria
-        // let checkIn = this.orderObj.fechacheckin + " 13:00:00";
-        // let checkOut = this.orderObj.fechacheckout + " 11:00:00";
-        // let idCategoria = this.orderObj.categoria_id;
+        
 
         // this.apiRest.getDisponibilidad(checkIn,checkOut,idCategoria).subscribe(
         //     dataHabitacion =>{

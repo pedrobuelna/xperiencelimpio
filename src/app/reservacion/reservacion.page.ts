@@ -63,8 +63,8 @@ export class ReservacionPage implements OnInit {
       this.diacheckout = this.dateObj.getUTCDate() + 1;
       this.mescheckout = this.monthNames[this.currentmonth];
       this.aniocheckout = this.currentyear;
-      this.fechachekincompleta = this.aniocheckin+"-"+(this.dateObj.getUTCMonth()+1)+"-"+this.diacheckin
-      this.fechachekoutcompleta= this.aniocheckout+"-"+(this.dateObj.getUTCMonth()+1)+"-"+this.diacheckout
+      this.fechachekincompleta = this.aniocheckin+"-"+(("0" + (this.dateObj.getUTCMonth()+1)).slice(-2))+"-"+this.diacheckin
+      this.fechachekoutcompleta= this.aniocheckout+"-"+(("0" + (this.dateObj.getUTCMonth()+1)).slice(-2))+"-"+this.diacheckout
 
       // this.fechaIn = this.aniocheckin.toString()+"-"+this.mescheckin.toString()+"-"+this.diacheckin.toString()
       // this.fechaOut = this.aniocheckout.toString()+"-"+this.mescheckout.toString()+"-"+this.diacheckout.toString()
