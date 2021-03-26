@@ -22,9 +22,13 @@
       </div>
     </div>
     <div class="calendariocheckin" [class]="showcalendariocheckin">
-      <ionic-calendar-date-picker [monthLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [yearLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [itemSelectedStyle]="{ 'background': '#000', 'color': '#fff' }" [monthLabels]="['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']" [yearLabelsStyle]="{'font-size': '15px','color':'black'}" [dayLabels]="['DOM', 'LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB']" (onSelect)="fechaCheckin($event)"></ionic-calendar-date-picker>
+      <br>
+      <span>CHECK IN:</span>
+      <ionic-calendar-date-picker [fromDate]="2021-03-25" [monthLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [yearLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [itemSelectedStyle]="{ 'background': '#000', 'color': '#fff' }" [monthLabels]="['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']" [yearLabelsStyle]="{'font-size': '15px','color':'black'}" [dayLabels]="['DOM', 'LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB']" (onSelect)="fechaCheckin($event)"></ionic-calendar-date-picker>
     </div>
     <div class="calendariocheckin" [class]="showcalendariocheckout">
+      <br>
+      <span>CHECK OUT:</span>
       <ionic-calendar-date-picker [monthLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [yearLabelsStyle]="{'color': '#000','text-decoration': 'none' }" [itemSelectedStyle]="{ 'background': '#000', 'color': '#fff' }" [monthLabels]="['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']" [yearLabelsStyle]="{'font-size': '15px','color':'black'}" [dayLabels]="['DOM', 'LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB']" (onSelect)="fechaCheckout($event)"></ionic-calendar-date-picker>
     </div>
     <div class="content_personas">
@@ -43,12 +47,12 @@
     </div>
     <!-- <div class="link">Agregar otra habitación</div> -->
     <ion-input class="input2" placeholder="Código de Promoción"></ion-input>
-    <ion-button class="btn3" (click)="busqueda()">encontrar habitaciones</ion-button>
+    <ion-button class="btn3" (click)="busqueda()" [class]="mostrarencontrar">encontrar habitaciones</ion-button>
   </div>
   <div class="content_busqueda" [class]="showbusqueda">
     <div id="contenido_descripciones">
       <p class="fechas">{{mescheckin}} {{diacheckin}} {{aniocheckin}} <span *ngIf="numeroCantidad>0"> - {{mescheckout}} {{diacheckout}} {{aniocheckout}}</span></p>
-      <p class="habitacion_personas">1 habitación<span *ngIf="numeroCantidad>0">, {{cantidad}}</span><span *ngIf="numeroCantidadMenores>0">, {{cantidadMenores}}</span></p> 
+      <p class="habitacion_personas">1 habitación<span *ngIf="numeroCantidad>0">, {{cantidad}}</span><span *ngIf="numeroCantidadMenores>0">, {{cantidadMenores}}</span> <span>{{noches}}</span></p> 
       <!-- <span>, {{diffInDays}} noche(s)</span>  -->
       <ion-button class="btn4">Cambiar Búsqueda</ion-button>
       <div class="contenedorFullFiltro">

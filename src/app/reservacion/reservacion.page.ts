@@ -5,9 +5,7 @@ import {
 import {
     Router
 } from '@angular/router';
-import {
-    NavController
-} from '@ionic/angular';
+import { NavController,AlertController } from '@ionic/angular';
 import {
     TaskService
 } from '../services/task.service';
@@ -26,6 +24,7 @@ export class ReservacionPage implements OnInit {
     constructor(
         private navCtrl: NavController, 
         private router: Router, 
+        public alertController: AlertController,
         private taskService: TaskService,
         private nativeStorage:NativeStorage) {}
     numeroCantidad: any = 1;
@@ -35,6 +34,7 @@ export class ReservacionPage implements OnInit {
     showbusqueda: any = "";
     showcalendariocheckin: any = "";
     showcalendariocheckout: any = "";
+    mostrarencontrar: any = "";
     diacheckin: any;
     mescheckin: any;
     aniocheckin: any;
@@ -55,17 +55,19 @@ export class ReservacionPage implements OnInit {
     fechaIn: any;
     fechaOut: any;
     habitaciones: any;
+    noches:any;
+    diacheckoutSinver:any;
+    mescheckoutSinver:any;
+    aniocheckoutSinver:any;
     ngOnInit() {
       this.diacheckin = this.currentday;
       this.mescheckin = this.monthNames[this.currentmonth];
       this.aniocheckin = this.currentyear;
-
       this.diacheckout = this.dateObj.getUTCDate() + 1;
       this.mescheckout = this.monthNames[this.currentmonth];
       this.aniocheckout = this.currentyear;
       this.fechachekincompleta = this.aniocheckin+"-"+(("0" + (this.dateObj.getUTCMonth()+1)).slice(-2))+"-"+this.diacheckin
       this.fechachekoutcompleta= this.aniocheckout+"-"+(("0" + (this.dateObj.getUTCMonth()+1)).slice(-2))+"-"+this.diacheckout
-
       // this.fechaIn = this.aniocheckin.toString()+"-"+this.mescheckin.toString()+"-"+this.diacheckin.toString()
       // this.fechaOut = this.aniocheckout.toString()+"-"+this.mescheckout.toString()+"-"+this.diacheckout.toString()
       // this.diffInMs   = new Date(parseDate(this.fechaOut)) - new Date(parseDate(fechaIn))
@@ -95,37 +97,81 @@ export class ReservacionPage implements OnInit {
         );
     }
     fechaCheckin($event) {
-        // console.log("==MES==");
-        // console.log((("0" + ($event.getUTCMonth()+1)).slice(-2)));
-        // let mes= $event.getUTCMonth()+1;
-        // console.log($event.getUTCMonth().toISOString().slice(0,10));
-        // console.log(mes)
-        // console.log("==Event==");
-        // console.log($event);
-        // console.log("==toLocaleString==");
-        // console.log($event.toLocaleString());
+      this.mostrarencontrar="hide"
+        this.showbusqueda=""
         var month = $event.getUTCMonth(); //months from 1-12
         var day = $event.getUTCDate();
         var daycheckout = $event.getUTCDate() + 1;
         var year = $event.getUTCFullYear();
+
         this.diacheckin = day;
         this.mescheckin = this.monthNames[month];
         this.aniocheckin = year
-        this.diacheckout = daycheckout;
-        this.mescheckout = this.monthNames[month];
-        this.aniocheckout = year
+
+        // this.diacheckout = daycheckout;
+        // this.mescheckout = this.monthNames[month];
+        // this.aniocheckout = year
+        this.diacheckoutSinver = day;
+        this.mescheckoutSinver = this.monthNames[month];
+        this.aniocheckoutSinver = year
+        
         this.fechachekincompleta = this.aniocheckin + "-" + (("0" + ($event.getUTCMonth()+1)).slice(-2)) + "-" + this.diacheckin;
-        this.fechachekoutcompleta = this.aniocheckout + "-" + (("0" + ($event.getUTCMonth()+1)).slice(-2)) + "-" + this.diacheckout
-        console.log("CHECKIN  en fecha checkin" + this.fechachekincompleta)
-        console.log("CHECKOUT  en fecha checkin" + this.fechachekoutcompleta);
+        this.fechachekoutcompleta = this.aniocheckoutSinver + "-" + (("0" + ($event.getUTCMonth()+1)).slice(-2)) + "-" + this.diacheckoutSinver
 
         
+        console.log("CHECKIN  en fecha checkin" + this.fechachekincompleta)
+        console.log("CHECKOUT  en fecha checkin" + this.fechachekoutcompleta);
+        var date1 = new Date(this.fechachekincompleta);
+        var date2 = new Date(this.fechachekoutcompleta);
+        // To calculate the time difference of two dates
+        var Difference_In_Time = date2.getTime() - date1.getTime();
+        // To calculate the no. of days between two dates
+        var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+        Difference_In_Days = Math.trunc(Difference_In_Days)
+        this.noches = ", "+Difference_In_Days + " Noche(s)";
+        //To display the final no. of days (result)
+        // alert("Total numero de dias entre fechas  <br>"
+        //                + date1 + "<br> y <br>" 
+        //                + date2 + " is: <br> " 
+        //                + Difference_In_Days);
+        var date3 = new Date(this.fechachekincompleta);
+        var date4 = new Date();
+        // To calculate the time difference of two dates
+        var Difference_In_Time2 = date3.getTime() - date4.getTime();
+        // To calculate the no. of days between two dates
+        var Difference_In_Days = Difference_In_Time2 / (1000 * 3600 * 24);
+        // To calculate the time difference of two dates
+        Difference_In_Days = Math.trunc(Difference_In_Days)
+        if(Difference_In_Days <0){
+          this.alertCheckin();
+          this.mostrarencontrar="hide"
+          //this.showbusqueda=""
+        }else{
+          //this.mostrarencontrar=""
+        }
+    }
+    async alertCheckin() {
+      const alert = await this.alertController.create({
+        cssClass: 'class_alert',
+        header: 'Mensaje de XPERIENCE',
+        //subHeader: 'Subtitle',
+        message: 'Fecha del CHECKIN debe ser igual o mayor a la fecha de hoy.',
+        buttons: ['OK']
+      });
+      await alert.present();
+    }
+    async alertCheckout() {
+      const alert = await this.alertController.create({
+        cssClass: 'class_alert',
+        header: 'Mensaje de XPERIENCE',
+        //subHeader: 'Subtitle',
+        message: 'Fecha del CHECKOUT debe ser mayor a la fecha del CHECKIN y Fecha CHECKIN Mayor al dia de hoy.',
+        buttons: ['OK']
+      });
+      await alert.present();
     }
     fechaCheckout($event) {
-        // console.log("==Event==");
-        // console.log($event);
-        // console.log("==toLocaleString==");
-        // console.log($event.toLocaleString());
+        
         var month = $event.getUTCMonth(); //months from 1-12
         var day = $event.getUTCDate();
         var year = $event.getUTCFullYear();
@@ -134,8 +180,39 @@ export class ReservacionPage implements OnInit {
         this.aniocheckout = year
         this.fechachekoutcompleta = this.aniocheckout + "-" + (("0" + ($event.getUTCMonth()+1)).slice(-2)) + "-" + this.diacheckout
         console.log("CHECKIN  en fecha checkout" + this.fechachekincompleta)
-        console.log("CHECKOUT  en fecha checkout" + this.fechachekoutcompleta);
+        console.log("CHECKOUT  en fecha checkin" + this.fechachekoutcompleta);
+        var date1 = new Date(this.fechachekincompleta);
+        var date2 = new Date(this.fechachekoutcompleta);
         
+        // To calculate the time difference of two dates
+        var Difference_In_Time = date1.getTime() - date2.getTime();
+        // To calculate the no. of days between two dates
+        var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+        Difference_In_Days = Math.trunc(Difference_In_Days)
+        this.noches = ", "+Difference_In_Days + " Noche(s)";
+
+        console.log(Difference_In_Days+"FECHA 1")
+
+        var date3 = new Date();//dia actual
+        var Difference_In_Time2 = date2.getTime() - date3.getTime();
+        // To calculate the no. of days between two dates
+        var Difference_In_Days2 = Difference_In_Time2 / (1000 * 3600 * 24);
+        Difference_In_Days2 = Math.trunc(Difference_In_Days2)
+
+        console.log(Difference_In_Days2+" FECHA 2")
+
+        if(Difference_In_Days2<0){
+          console.log(Difference_In_Days2+" FECHA 2 2")
+        }
+
+        
+        if(Difference_In_Days >0 || Difference_In_Days2<=0){
+          this.alertCheckout();
+          this.mostrarencontrar="hide"
+          this.showbusqueda=""
+        }else{
+          this.mostrarencontrar=""
+        }
     }
     mostrarCheckin() {
         if (this.showcalendariocheckin == "") {
@@ -154,20 +231,35 @@ export class ReservacionPage implements OnInit {
         }
     }
     busqueda() {
-        if (this.showbusqueda == "") {
+        // if (this.showbusqueda == "") {
             this.taskService.getHabitaciones(this.fechachekincompleta, this.fechachekoutcompleta,(this.numeroCantidad + this.numeroCantidadMenores))
                 .subscribe(habitaciones => {
                     this.habitaciones = habitaciones
+                    var date1 = new Date(this.fechachekincompleta);
+                    var date2 = new Date(this.fechachekoutcompleta);
+                      
+                    // To calculate the time difference of two dates
+                    var Difference_In_Time = date2.getTime() - date1.getTime();
+                      
+                    // To calculate the no. of days between two dates
+                    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+                    Difference_In_Days = Math.trunc(Difference_In_Days)
+                    this.noches = ", "+Difference_In_Days + " Noche(s)";
+                    //To display the final no. of days (result)
+                    // alert("Total numero de dias entre fechas  <br>"
+                    //               + date1 + "<br> y <br>" 
+                    //               + date2 + " is: <br> " 
+                    //               + Difference_In_Days);
                     this.showbusqueda = "show";
                     //$('#divHabitaciones').scrollTop(); //TODO activar jquery para hacer el scroll
                     setTimeout(function(){ 
-                        document.getElementById("divHabitaciones").scrollIntoView(false);
+                        document.getElementById("divHabitaciones").scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 500);
                     
                 });
-        } else {
-            //this.showbusqueda="";
-        }
+        // } else {
+        //     //this.showbusqueda="";
+        // }
     }
     atras() {
         this.navCtrl.back();
